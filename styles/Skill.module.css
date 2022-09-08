@@ -1,0 +1,17 @@
+.skill{
+    background-color: var(--blanco);
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nombre{
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.descripcion{
+    font-size: 1.6rem;
+}

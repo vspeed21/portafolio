@@ -1,0 +1,122 @@
+.grid{
+  display: grid;
+  gap: 3rem;
+}
+
+.grid:not(:first-child) {
+  margin-top: 3rem;
+}
+
+@media (min-width: 768px) {
+  .grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.listado h3{
+  font-size: 3rem;
+  text-align: center;
+  padding: 3rem 0 1rem 0;
+}
+
+.card{
+  background-color: var(--blanco);
+  padding: 2rem;
+  scroll-snap-align: start;
+}
+
+@media (min-width: 768px) {
+  .card:nth-child(3){
+    display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .card:nth-child(3){
+    display: block;
+  }
+}
+
+.card h3{
+  text-align: center;
+  font-size: 2.7rem;
+  padding-block: 1rem;
+}
+
+.card a img{
+  transition-property: transform;
+  transition-duration: .3s;
+  margin: 0 auto;
+}
+
+.card a img:hover{
+  transform: scale(1.2);
+}
+
+.tecnologias{
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding-block: 1rem;
+}
+
+.descripcion{
+  font-size: 1.6rem;
+  line-height: 1.4;
+  margin-block: 2rem;
+}
+
+.botones{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+@media (min-width: 768px) {
+  .botones{
+    flex-direction: row;
+  }
+}
+
+.boton{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.boton a{
+  display: block;
+  margin-block: 3rem;
+  padding: 1.5rem;
+  border-radius: .5rem;
+  font-size: 1.6rem;
+  color: var(--blanco);
+  background-color: var(--secundario);
+  transition-property: background-color;
+  transition-duration: .3s;
+}
+
+.boton a:hover{
+  background-color: var(--terciario);
+}
+
+.texto p{
+  font-size: 2rem;
+  text-align: center;
+  margin: 0 2rem 2rem 2rem;
+}
+
+@media (min-width: 768px) {
+  .texto p{
+    width: 50%;
+    margin: 0 auto 2rem auto;
+  }
+}
