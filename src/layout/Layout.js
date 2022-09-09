@@ -7,7 +7,6 @@ const Layout = ({children, pagina, informacion}) => {
     <>
       <Head>
         <title>TikoDev | {pagina}</title>
-        <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet' />
         <link rel="icon" href="/favicon_web.png" />
       </Head>
 

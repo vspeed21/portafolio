@@ -1,3 +1,4 @@
+import 'boxicons'
 
 import styles from '../../styles/Contacto.module.css'
 import Formulario from './Formulario'
@@ -13,18 +14,20 @@ const Contacto = () => {
           </h3>
 
           <div className={styles.email}>
-            <i className='bx bxl-gmail bx-lg'></i>
+            <a href='mailito:vtorresquintanilla0206@gmail.com'>
+              <box-icon name='gmail' type='logo' size='cssSize'></box-icon>
+            </a>
             <p>vtorresquintanilla0206@gmail.com</p>
           </div>
 
-          <div className={styles.email}>
-            <i className='bx bxl-github bx-lg'></i>
-            <p>vspeed21</p>
-          </div>
+          <div className={styles.flex}>
+            <a href='https://api.whatsapp.com/send?phone=50499152520'>
+              <box-icon name='whatsapp' type='logo' size='cssSize'></box-icon>
+            </a>
 
-          <div className={styles.email}>
-            <i className='bx bxl-whatsapp bx-lg'></i>
-            <p>+504 99152520</p>
+            <a href='https://github.com/vspeed21'>
+              <box-icon name='github' type='logo' size='cssSize'></box-icon>
+            </a>
           </div>
         </div>
 
