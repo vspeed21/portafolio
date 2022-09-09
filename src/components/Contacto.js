@@ -16,7 +16,7 @@ const Contacto = () => {
           <div className={styles.email}>
             <a 
               href='mailito:vtorresquintanilla0206@gmail.com'
-              target={'_blank'}
+              target='_blank'
               rel="noopener noreferrer"
             >
               <GoMail />
@@ -27,13 +27,17 @@ const Contacto = () => {
           <div className={styles.flex}>
             <a 
               href='https://api.whatsapp.com/send?phone=50499152520'
-              target={'_blank'}
+              target='_blank'
               rel="noopener noreferrer"
             >
               <BsWhatsapp />
             </a>
 
-            <a href='https://github.com/vspeed21'>
+            <a 
+              href='https://github.com/vspeed21'
+              target='_blank'
+              rel="noopener noreferrer"
+            >
               <GoMarkGithub />
             </a>
           </div>
