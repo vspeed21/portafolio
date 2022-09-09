@@ -48,6 +48,12 @@ const Header = ({ informacion }) => {
         </div>
 
         <nav className={styles.navegacion}>
+          {informacion === null && 
+            <Link href='/'>
+              Inicio
+            </Link>
+          }
+
           <Link href='/skills'>
             Habilidades
           </Link>
