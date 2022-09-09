@@ -9,10 +9,10 @@ const ListadoReacts = ({proyecto}) => {
     <>
       <div className={stylesG.grid}>
         {proyecto.map( react => {
-          const { nombre, descripcion, linkGit, linkProyecto, imagen, tecnologias, id} = react;
+          const { nombre, descripcion, linkGit, linkProyecto, imagen, tecnologias} = react;
 
           return(
-            <div className={styles.card} key={id}>
+            <div className={styles.card} key={react.id}>
               <h3>{nombre}</h3>
               <a href={linkProyecto} target='_blank' rel="noopener noreferrer" className='mask'>
                 <Image

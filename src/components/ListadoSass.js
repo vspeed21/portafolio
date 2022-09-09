@@ -9,11 +9,11 @@ const ListadoSass = ({proyecto}) => {
     <>
       <div className={stylesG.grid}>
         {proyecto.map( sass => {
-          const { nombre, descripcion, linkGit, linkProyecto, imagen, tecnologias, id} = sass;
+          const { nombre, descripcion, linkGit, linkProyecto, imagen, tecnologias} = sass;
 
 
           return(
-          <div className={styles.card} key={id}>
+          <div className={styles.card} key={sass.id}>
             <h3>{nombre}</h3>
             <a href={linkProyecto} target='_blank' rel="noopener noreferrer" className='mask'>
               <Image

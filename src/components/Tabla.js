@@ -3,7 +3,7 @@ import styles from '../../styles/Tabla.module.css';
 const Tabla = () => {
   return (
     <div className={styles.tabla}>
-      <div className={`${styles.flex} contenedor`}>``
+      <div className={`${styles.flex} contenedor`}>
         <div className={styles.categoria}>
           <p>40+</p>
           <p>Proyectos</p>

@@ -1,6 +1,8 @@
+import { generarId } from "../helpers"
+
 const Reacts = [
   {
-    id: Date.now(),
+    id: generarId(),
     nombre: 'Agenda de contactos',
     descripcion: 'Una simple agenda de contactos con LocalStorage incluido',
     imagen: '/img/proyectos/proyectos-react/contact-list.png',
@@ -9,12 +11,12 @@ const Reacts = [
 
     tecnologias: [
       {
-        id: Date.now(),
+        id: generarId(),
         imagen: '/logos/logo-react.png'
       },
 
       {
-        id: Date.now(),
+        id: generarId(),
         imagen: '/logos/logo-tailwindcss.png'
       },
     ]
@@ -29,7 +31,7 @@ const Reacts = [
 
 const Sass = [
   {
-    id: Date.now(),
+    id: generarId(),
     nombre: 'Cafeteria',
     descripcion: '',
     imagen: '/img/proyectos/proyectos-sass/cafeteria.png',
@@ -38,18 +40,18 @@ const Sass = [
 
     tecnologias:[
       {
-        id: Date.now(),
+        id: generarId(),
         imagen: '/logos/logo-sass.png',
       },
       {
-        id: Date.now(),
+        id: generarId(),
         imagen: '/logos/logo-gulp.png',
       }
     ]
   },
 
   {
-    id: Date.now(),
+    id: generarId(),
     nombre: 'Podcast Web',
     descripcion: '',
     imagen: '/img/proyectos/proyectos-sass/podcast-app.png',
@@ -58,16 +60,18 @@ const Sass = [
 
     tecnologias:[
       {
+        id: generarId(),
         imagen: '/logos/logo-sass.png',
       },
       {
+        id: generarId(),
         imagen: '/logos/logo-gulp.png',
       }
     ]
   },
 
   {
-    id: Date.now(),
+    id: generarId(),
     nombre: 'Real State',
     descripcion: '',
     imagen: '/img/proyectos/proyectos-sass/real-state.png',
@@ -76,9 +80,11 @@ const Sass = [
 
     tecnologias:[
       {
+        id: generarId(),
         imagen: '/logos/logo-sass.png',
       },
       {
+        id: generarId(),
         imagen: '/logos/logo-gulp.png',
       }
     ]
