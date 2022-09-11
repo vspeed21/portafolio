@@ -8,6 +8,9 @@ const Layout = ({children, pagina, informacion}) => {
       <Head>
         <title>TikoDev | {pagina}</title>
         <link rel="icon" href="/favicon_web.png" />
+        <meta name="description" content="Sitio web donde visualizar proyectos y habilidades de un programador web" />
+        <meta name="author" content="Victor Torres" />
+        <meta name="keywords" content="portafolio web, proyectos web, skills" />
       </Head>
 
       <Header informacion={informacion} />
