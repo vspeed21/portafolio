@@ -18,7 +18,7 @@ const ListadoSkills = ({frontends, backends, herramientas}) => {
         </div>
         
         <h3>Backend</h3>
-        <div className={styles.grid}>
+        <div data-aos="fade-right" className={styles.grid}>
             {backends.map( backend => (
                 <BackendSkill 
                     key={backend.id}
@@ -28,7 +28,7 @@ const ListadoSkills = ({frontends, backends, herramientas}) => {
         </div>
 
         <h3>Otras herramientas</h3>
-        <div className={styles.grid}>
+        <div data-aos="fade-left" className={styles.grid}>
             {herramientas.map( herramienta => (
                 <HerramientaSkill
                     key={herramienta.id}

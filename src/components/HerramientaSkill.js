@@ -6,7 +6,7 @@ const BackendSkill = ({herramienta}) => {
     const { nombre, descripcion, imagen} = herramienta;
 
   return (
-    <div className={`${styles.skill} transitionBackend`}>
+    <div className={styles.skill}>
         <Image 
             width={300}
             height={nombre === 'Gulp' ? 400 : 250}
