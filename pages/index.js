@@ -1,3 +1,6 @@
+import AOS from 'aos';
+AOS.init();
+
 import Layout from "../src/layout/Layout"
 import SobreMi from "../src/components/SobreMi";
 import { Tabs } from "../src/components/Tabs"

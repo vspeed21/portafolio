@@ -1,9 +1,7 @@
-import AOS from 'aos';
-
 import Link from 'next/link'
 import styles from '../../styles/SobreMi.module.css';
 
-AOS.init();
+
 
 const SobreMi = () => {
 
@@ -16,7 +14,7 @@ const SobreMi = () => {
         <div 
           data-aos="fade-right" 
           className={styles.texto}
-          ata-aos-duration="600"
+          ata-aos-duration="800"
         >
           <p>
             Soy una persona responsable, honesta, apasionado en mi área. He realizado diversos sitios web con diferentes tecnologías que me han permitido practicar mis conocimientos y así obtener cierto nivel de experiencia.
@@ -35,7 +33,7 @@ const SobreMi = () => {
 
         <div 
           data-aos="fade-left"
-          ata-aos-duration="600"
+          ata-aos-duration="800"
           className={styles.imagenes}
         >
           <img
