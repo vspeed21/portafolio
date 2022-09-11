@@ -52,6 +52,26 @@ const Sass = [
 
   {
     id: generarId(),
+    nombre: 'Majestic Spa',
+    descripcion: '',
+    imagen: '/img/proyectos/proyectos-sass/majesticSpa.png',
+    linkProyecto: 'https://majestic-spa.netlify.app',
+    linkGit: 'https://github.com/vspeed21/MajesticSpa',
+
+    tecnologias:[
+      {
+        id: generarId(),
+        imagen: '/logos/logo-sass.png',
+      },
+      {
+        id: generarId(),
+        imagen: '/logos/logo-gulp.png',
+      }
+    ]
+  },
+
+  {
+    id: generarId(),
     nombre: 'Podcast Web',
     descripcion: '',
     imagen: '/img/proyectos/proyectos-sass/podcast-app.png',
