@@ -1,27 +1,40 @@
 import Image from 'next/image';
 import styles from '../../styles/ListadoP.module.css'
-import stylesG from '../../styles/Tabs.module.css';
 
 const ListadoReactPagina = ({proyecto}) => {
 
   return (
     <>
-      <div className={stylesG.grid}>
+      <div className={styles.grid}>
         {proyecto.map( sass => {
-          const { nombre, descripcion, linkGit, linkProyecto, imagen} = sass;
+          const { nombre, descripcion, linkGit, linkProyecto, imagen, tecnologias} = sass;
 
 
           return(
           <div className={`${styles.card} block`} key={sass.id}>
             <h3>{nombre}</h3>
             <a href={linkProyecto} target='_blank' rel="noopener noreferrer" className='mask'>
-              <Image
-                width={300}
-                height={300}
-                src={imagen}
-                alt={`imagen proyecto ${nombre}`}
-              />
+              <div className={styles.imagen}>
+                <Image
+                  width={300}
+                  height={300}
+                  src={imagen}
+                  alt={`imagen proyecto ${nombre}`}
+                />
+              </div>
             </a>
+
+            <div className={styles.tecnologias}>
+              {tecnologias.map( tecnologia => (
+                <Image
+                  key={tecnologia.id}
+                  width={30}
+                  height={tecnologia.imagen === '/logos/logo-gulp.png' ? 30 : 50}
+                  src={tecnologia.imagen}
+                  alt='imagen tecnologia'
+                />
+              ))}
+            </div>
 
             {descripcion && 
               <p className={styles.descripcion}>{descripcion}</p>

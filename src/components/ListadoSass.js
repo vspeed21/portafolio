@@ -65,7 +65,7 @@ const ListadoSass = ({proyecto}) => {
       
       {proyecto.length > 3 && 
           <div className={styles.boton}>
-            <Link href='/proyectos-react'>
+            <Link href='/proyectos-sass'>
               Ver mas
             </Link>
           </div>

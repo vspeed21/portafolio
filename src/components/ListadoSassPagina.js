@@ -7,9 +7,9 @@ const ListadoSassPagina = ({proyecto}) => {
 
   return (
     <>
-      <div className={stylesG.grid}>
+      <div className={styles.grid}>
         {proyecto.map( sass => {
-          const { nombre, descripcion, linkGit, linkProyecto, imagen} = sass;
+          const { nombre, descripcion, linkGit, linkProyecto, imagen, tecnologias} = sass;
 
 
           return(
@@ -17,36 +17,50 @@ const ListadoSassPagina = ({proyecto}) => {
             <h3>{nombre}</h3>
             <Link href={linkProyecto} target='_blank' rel="noopener noreferrer" className='mask'>
               <a>
-                <Image
-                  width={300}
-                  height={300}
-                  src={imagen}
-                  alt={`imagen proyecto ${nombre}`}
-                />
+                <div className={styles.imagen}>
+                  <Image
+                    width={300}
+                    height={300}
+                    src={imagen}
+                    alt={`imagen proyecto ${nombre}`}
+                  />
+                </div>
               </a>
             </Link>
+
+            <div className={styles.tecnologias}>
+              {tecnologias.map( tecnologia => (
+                <Image
+                  key={tecnologia.id}
+                  width={30}
+                  height={tecnologia.imagen === '/logos/logo-gulp.png' ? 30 : 50}
+                  src={tecnologia.imagen}
+                  alt='imagen tecnologia'
+                />
+              ))}
+            </div>
 
             {descripcion && 
               <p className={styles.descripcion}>{descripcion}</p>
             }
 
             <div className={styles.botones}>
-              <Link
+              <a
                 href={linkProyecto} 
                 target='_blank'
                 rel="noopener noreferrer"
                 className='btn btn-proyecto'
               >
                 Ver Proyecto
-              </Link>
-              <Link
+              </a>
+              <a
                 href={linkGit}
                 target='_blank'
                 rel="noopener noreferrer"
                 className='btn btn-git'
               >
                 Repositorio
-              </Link>
+              </a>
             </div>
           </div>
             )

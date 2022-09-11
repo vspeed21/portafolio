@@ -39,7 +39,7 @@
 
 @media (min-width: 992px) {
   .card:nth-child(3){
-    display: block;
+    display: none;
   }
 }
 
