@@ -55,7 +55,7 @@
 
 .grid{
   display: grid;
-  grid-template-columns: repeat(3, 300px);
+  grid-template-columns: repeat(4, 300px);
   gap: 3rem;
   overflow-y: hidden;
   overflow-x: scroll;
