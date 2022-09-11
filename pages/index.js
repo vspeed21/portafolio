@@ -1,5 +1,5 @@
+import { useEffect } from 'react';
 import AOS from 'aos';
-AOS.init();
 
 import Layout from "../src/layout/Layout"
 import SobreMi from "../src/components/SobreMi";
@@ -10,6 +10,9 @@ import { Reacts, Sass } from '../src/data/proyectos';
 
 export default function Home() {
 
+  useEffect( () => {
+    AOS.init();
+  }, []);
   
   return (
    <>
