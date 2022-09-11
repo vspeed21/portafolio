@@ -1,6 +1,3 @@
-import AOS from 'aos';
-import { useEffect } from 'react';
-
 import Layout from "../src/layout/Layout"
 import ListadoSkills from "../src/components/ListadoSkills";
 import styles from '../styles/Listado.module.css'
@@ -8,11 +5,6 @@ import styles from '../styles/Listado.module.css'
 import { Frontend, Backend, Herramientas } from '../src/data/skills'
 
 const skills = () => {
-
-  useEffect(() => {
-    AOS.init()
-  }, []);
-  
 
   return (
     <Layout pagina='Habilidades'>

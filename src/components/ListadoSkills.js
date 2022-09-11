@@ -1,9 +1,15 @@
+import AOS from 'aos';
+import { useEffect } from 'react';
+
 import FrontendSkill from './FrontendSkill'
 import BackendSkill from './BackendSkill'
 import styles from '../../styles/Listado.module.css'
 import HerramientaSkill from './HerramientaSkill'
 
 const ListadoSkills = ({frontends, backends, herramientas}) => {
+    useEffect(() => {
+        AOS.init();
+    }, []);
 
   return (
     <div className={`${styles.listado} contenedor`}>
