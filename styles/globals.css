@@ -245,3 +245,67 @@ i{
     }
   }
 }
+
+.animacionXP{
+  animation-name: animacion-XP-tel;
+  animation-duration: 1s;
+}
+
+@keyframes animacion-XP-tel{
+  0%{
+    transform: translateY(30rem);
+  }
+
+  100%{
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .animacionXP{
+    animation-name: animacion-XP-tablet;
+    animation-duration: 1s;
+  }
+  
+  @keyframes animacion-XP-tablet{
+    0%{
+      transform: translateX(30rem);
+    }
+  
+    100%{
+      transform: translateX(0);
+    }
+  }
+}
+
+.animacionProyectos{
+  animation-name: animacion-proyectos-tel;
+  animation-duration: 1s;
+}
+
+@keyframes animacion-proyectos-tel{
+  0%{
+    transform: translateY(-30rem);
+  }
+
+  100%{
+    transform: translateY(0);
+  }
+}
+
+@media (min-width: 768px) {
+  .animacionProyectos{
+    animation-name: animacion-proyectos-tablet;
+    animation-duration: 1s;
+  }
+  
+  @keyframes animacion-proyectos-tablet{
+    0%{
+      transform: translateX(-30rem);
+    }
+  
+    100%{
+      transform: translateX(0);
+    }
+  }
+}

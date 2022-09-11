@@ -3,6 +3,7 @@
   padding-block: 7rem;
   color: var(--blanco);
   margin-bottom: 2rem;
+  overflow: hidden;
 }
 
 .flex{
