@@ -13,7 +13,7 @@ const ListadoSass = ({proyecto}) => {
 
 
           return(
-          <div className={styles.card} key={sass.id}>
+          <div data-aos="flip-left" className={styles.card} key={sass.id}>
             <h3>{nombre}</h3>
             <a href={linkProyecto} target='_blank' rel="noopener noreferrer" className='mask'>
               <Image
