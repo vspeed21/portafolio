@@ -7,6 +7,7 @@ const Layout = ({children, pagina, informacion}) => {
     <>
       <Head>
         <title>TikoDev | {pagina}</title>
+        <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <link rel="icon" href="/favicon_web.png" />
         <meta name="description" content="Sitio web donde visualizar proyectos y habilidades de un programador web" />
         <meta name="author" content="Victor Torres" />
