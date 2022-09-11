@@ -1,7 +1,13 @@
 .header{
-    background-image:  linear-gradient(to right, rgb(0 0 0 /.8), rgb(0 0 0 /.8)), url(/img/header.jpg);
+  background-image:  linear-gradient(to right, rgb(0 0 0 /.8), rgb(0 0 0 /.8)), url(/img/header.jpg);
+  background-position: center right;
+  padding-block: 2rem;
+}
+
+@media (min-width: 768px) {
+  .header{
     background-position: center center;
-    padding-block: 2rem;
+  }
 }
 
 .wrapper{
