@@ -1,6 +1,8 @@
 .header{
   background-image:  linear-gradient(to right, rgb(0 0 0 /.8), rgb(0 0 0 /.8)), url(/img/header.jpg);
-  background-position: center right;
+  background-position: center, top right;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding-block: 2rem;
 }
 
@@ -118,8 +120,8 @@
   display: inline-block;
   font-size: 20rem;
   color: transparent;
-  background: linear-gradient(to right, #F16529 0%, #F16529 38%, #61DBFB 36%, #61DBFB 55%,
-   #F7DF1E 70%, #F7DF1E 100%);
+  background: linear-gradient(to right, #F16529 0%, #F16529 33%, #61DBFB 34%, #61DBFB 66%,
+  #F7DF1E 67%, #F7DF1E 100%);
   background-clip: text;
   -webkit-background-clip: text;
 }
