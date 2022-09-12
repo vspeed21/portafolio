@@ -12,7 +12,7 @@ const ListadoReacts = ({proyecto}) => {
           const { nombre, descripcion, linkGit, linkProyecto, imagen, tecnologias} = react;
 
           return(
-            <div className={styles.card} key={react.id}>
+            <div data-aos="flip-left" className={styles.card} key={react.id}>
               <h3>{nombre}</h3>
               <a href={linkProyecto} target='_blank' rel="noopener noreferrer" className='mask'>
                 <Image
