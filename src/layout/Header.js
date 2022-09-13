@@ -1,10 +1,14 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link'
 import Typed from 'typed.js';
+import { useRouter } from 'next/router';
 
 import styles from '../../styles/Header.module.css'
 
 const Header = ({ informacion }) => {
+
+  const router = useRouter();
+  const path = router.pathname;
 
   const el = useRef(null);
   const typed = useRef(null)
@@ -55,10 +59,14 @@ const Header = ({ informacion }) => {
           }
 
           <Link href='/skills'>
-            Habilidades
+            <a className={path === '/skills' && styles.active_link}>
+              Habilidades
+            </a>
           </Link>
           <Link href='/contacto'>
-            Contacto
+            <a className={path === '/contacto' && styles.active_link}>
+              Contacto
+            </a>
           </Link>
         </nav>
       </div>

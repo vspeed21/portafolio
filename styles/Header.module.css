@@ -66,6 +66,10 @@
   color: var(--blanco);
 }
 
+.active_link{
+  background-color: var(--secundario);
+}
+
 @media (min-width: 768px) {
   .navegacion a:hover{
     background-color: unset;
@@ -81,6 +85,14 @@
     transition-property: width;
     transition-duration: .3s;
     transition-timing-function: ease-in;
+  }
+
+  .navegacion a.active_link::after{
+    width: 100%;
+  }
+
+  .active_link{
+    background-color: unset;
   }
   
   .navegacion a:hover::after{
