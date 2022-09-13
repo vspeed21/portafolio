@@ -9,7 +9,6 @@ import Tabla from "../src/components/Tabla"
 import { Reacts, Sass } from '../src/data/proyectos';
 
 export default function Home() {
-
   useEffect( () => {
     AOS.init();
   }, []);
