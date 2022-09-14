@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 import { useState } from 'react'
 
 import styles from '../../styles/Contacto.module.css'
@@ -10,7 +12,7 @@ const Formulario = () => {
   const [mensaje, setMensaje] = useState('');
   const [alerta, setAlerta] = useState('');
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
 
     if([nombre, email, mensaje].includes('')) {
@@ -22,6 +24,16 @@ const Formulario = () => {
     }
 
     setAlerta('');
+
+
+    //Guardar mensaje en la api
+    try {
+      const url = `${process.env.BACKEND_URL}/api/contacto`;
+      await axios.post(url, {nombre, email, celular, mensaje})
+      setAlerta('Mensaje enviado correctamente');
+    } catch (error) {
+      setAlerta(error.response.data.msg);
+    }
   }
 
   return (
