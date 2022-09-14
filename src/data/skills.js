@@ -39,7 +39,7 @@ const Frontend = [
   {
     id: generarId(),
     nombre: 'React',
-    descripcion: 'useState, useEffect react-router-dom & Next.js',
+    descripcion: 'useState, useEffect react-router-dom, context & Next.js',
     imagen: '/logos/logo-react.png'
   },
 ]
