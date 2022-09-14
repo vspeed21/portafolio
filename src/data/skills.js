@@ -32,7 +32,7 @@ const Frontend = [
   {
     id: generarId(),
     nombre: 'JavaScript',
-    descripcion: 'ES6+, POO, Async, Fetch, etc.',
+    descripcion: 'ES6+, Async, Fetch, etc.',
     imagen: '/logos/logo-js.png'
   },
 
@@ -48,7 +48,7 @@ const Backend = [
   {
     id: generarId(),
     nombre: 'PHP',
-    descripcion: 'Validación y CRUD',
+    descripcion: 'Validación de formularios y la realización de un CRUD',
     imagen: '/logos/logo-php.png'
   },
 
