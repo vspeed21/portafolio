@@ -44,7 +44,7 @@ const Header = ({ informacion }) => {
           <Link href='/'>
             <a>
               <img
-                src='/img/logo.png'
+                src='/logo.png'
                 alt='logo tikodev'
               />
             </a>
