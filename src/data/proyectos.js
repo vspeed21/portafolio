@@ -32,8 +32,8 @@ const Reacts = [
 const Sass = [
   {
     id: generarId(),
-    nombre: 'Cafeteria',
-    descripcion: '',
+    nombre: 'La Cafeteria',
+    descripcion: 'Sitio web con diferentes secciones para visitar, entre ellas; Nosotros, Contacto, Menú, etc..',
     imagen: '/img/proyectos/proyectos-sass/cafeteria.png',
     linkProyecto: 'https://cafeteriasass-proyecto.netlify.app',
     linkGit: 'https://github.com/vspeed21/cafeteria',
@@ -53,7 +53,7 @@ const Sass = [
   {
     id: generarId(),
     nombre: 'Majestic Spa',
-    descripcion: '',
+    descripcion: 'Proyecto universitario, crear un sitio web de nuestro emprendimiento',
     imagen: '/img/proyectos/proyectos-sass/majesticSpa.png',
     linkProyecto: 'https://majestic-spa.netlify.app',
     linkGit: 'https://github.com/vspeed21/MajesticSpa',
@@ -73,7 +73,7 @@ const Sass = [
   {
     id: generarId(),
     nombre: 'Podcast Web',
-    descripcion: '',
+    descripcion: 'Sitio web de para una aplicacion para crear Podcast, para despues distribuirlo',
     imagen: '/img/proyectos/proyectos-sass/podcast-app.png',
     linkProyecto: 'https://podcastfm-proyecto.netlify.app',
     linkGit: 'https://github.com/vspeed21/podcast-web',
@@ -93,7 +93,7 @@ const Sass = [
   {
     id: generarId(),
     nombre: 'Real State',
-    descripcion: '',
+    descripcion: 'Sitio web de una compañia de bienes raices',
     imagen: '/img/proyectos/proyectos-sass/real-state.png',
     linkProyecto: 'https://real-state-vt.netlify.app',
     linkGit: 'https://github.com/vspeed21/real-state',
