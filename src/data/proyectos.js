@@ -22,11 +22,25 @@ const Reacts = [
     ]
   },
 
-  // {
-  //   nombre: 'Buscador usuarios de github',
-  //   descripcion: 'Una simple agenda de contactos con LocalStorage incluido',
-  //   imagen: '/img/proyectos/proyectos-react/contact-list.png'
-  // },
+  {
+    id: generarId(),
+    nombre: 'Buscador de Clima',
+    descripcion: 'Ingresa la ciudad y el pais para poder observar la temperatura actual y mas... Con context incluido',
+    imagen: '/img/proyectos/proyectos-react/buscador-clima.png',
+    linkProyecto: 'https://buscador-clima-context.netlify.app',
+    linkGit: 'https://github.com/vspeed21/buscador-clima',
+
+    tecnologias: [
+      {
+        id: generarId(),
+        imagen: '/logos/logo-react.png'
+      },
+      {
+        id: generarId(),
+        imagen: '/logos/css.png'
+      },
+    ]
+  },
 ]
 
 const Sass = [
