@@ -11,15 +11,18 @@ const Formulario = () => {
   const [celular, setCelular] = useState('');
   const [mensaje, setMensaje] = useState('');
   const [alerta, setAlerta] = useState({});
+  const [error, setError] = useState(false)
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     if([nombre, email, mensaje].includes('')) {
       setAlerta({msg: 'Todos los campos son obligatorios', error: true})
+      setError(true);
       setTimeout(() => {
         setAlerta({})
-      }, 5000);
+        setError(false)
+      }, 4000);
       return;
     }
 
@@ -36,7 +39,7 @@ const Formulario = () => {
 
     setTimeout(() => {
       setAlerta({});
-    }, 5000);
+    }, 4000);
   }
 
   return (
@@ -53,9 +56,12 @@ const Formulario = () => {
           id='nombre'
           type={'text'}
           value={nombre}
+          className={error && 'borde-rojo'}
           onChange={e => setNombre(e.target.value)}
-          placeholder='Ingresa tu nombre'
+          placeholder={error ? '' : 'Ingresa tu nombre'}
         />
+
+        {error && <p>Ingrese su nombre</p>}
       </div>
 
       <div className={styles.campo}>
@@ -65,8 +71,10 @@ const Formulario = () => {
           type={'email'}
           value={email}
           onChange={e => setEmail(e.target.value)}
-          placeholder='Ingresa tu correo'
+          placeholder={error ? '' : 'Ingresa tu email'}
         />
+
+        {error && <p>Ingrese su nombre</p>}
       </div>
 
       <div className={styles.campo}>
@@ -85,10 +93,12 @@ const Formulario = () => {
         <textarea 
           id='mensaje'
           onChange={e => setMensaje(e.target.value)}
-          placeholder='Ingresa tu mensaje'
+          placeholder={error ? '' : 'Ingresa tu mensaje'}
           value={mensaje}
         >
         </textarea>
+
+        {error && <p>Ingresa tu mensaje</p>}
       </div>
 
       <input
