@@ -11,18 +11,32 @@ const Formulario = () => {
   const [celular, setCelular] = useState('');
   const [mensaje, setMensaje] = useState('');
   const [alerta, setAlerta] = useState({});
-  const [error, setError] = useState(false)
+  const [errorInput, setErrorInput] = useState(false)
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if([nombre, email, mensaje].includes('')) {
-      setAlerta({msg: 'Todos los campos son obligatorios', error: true})
-      setError(true);
+    if(nombre === '') {
+      setErrorInput(true);
       setTimeout(() => {
-        setAlerta({})
-        setError(false)
-      }, 4000);
+        setErrorInput(false)
+      }, 3000);
+      return;
+    }
+
+    if(email === '') {
+      setErrorInput(true);
+      setTimeout(() => {
+        setErrorInput(false)
+      }, 3000);
+      return;
+    }
+
+    if(mensaje === '') {
+      setErrorInput(true);
+      setTimeout(() => {
+        setErrorInput(false)
+      }, 3000);
       return;
     }
 
@@ -40,6 +54,11 @@ const Formulario = () => {
     setTimeout(() => {
       setAlerta({});
     }, 4000);
+
+    setNombre('')
+    setEmail('')
+    setCelular('')
+    setMensaje('');
   }
 
   return (
@@ -56,12 +75,12 @@ const Formulario = () => {
           id='nombre'
           type={'text'}
           value={nombre}
-          className={error && 'borde-rojo'}
+          className={errorInput && nombre === '' && 'borde-rojo'}
           onChange={e => setNombre(e.target.value)}
-          placeholder={error ? '' : 'Ingresa tu nombre'}
+          placeholder={errorInput ? '' : 'Ingresa tu nombre'}
         />
 
-        {error && <p>Ingrese su nombre</p>}
+        {errorInput && nombre ==='' && <p>Ingrese su nombre</p>}
       </div>
 
       <div className={styles.campo}>
@@ -70,11 +89,12 @@ const Formulario = () => {
           id='email'
           type={'email'}
           value={email}
+          className={errorInput && email === '' && 'borde-rojo'}
           onChange={e => setEmail(e.target.value)}
-          placeholder={error ? '' : 'Ingresa tu email'}
+          placeholder={errorInput ? '' : 'Ingresa tu email'}
         />
 
-        {error && <p>Ingrese su nombre</p>}
+        {errorInput && email === '' && <p>Ingrese su correo electronico</p>}
       </div>
 
       <div className={styles.campo}>
@@ -93,12 +113,13 @@ const Formulario = () => {
         <textarea 
           id='mensaje'
           onChange={e => setMensaje(e.target.value)}
-          placeholder={error ? '' : 'Ingresa tu mensaje'}
           value={mensaje}
+          className={errorInput && mensaje === '' && 'borde-rojo'}
+          placeholder={errorInput ? '' : 'Ingresa tu mensaje'}
         >
         </textarea>
 
-        {error && <p>Ingresa tu mensaje</p>}
+        {errorInput && mensaje === '' && <p>Ingrese su mensaje</p>}
       </div>
 
       <input
