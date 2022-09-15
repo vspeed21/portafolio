@@ -25,15 +25,18 @@ const Formulario = () => {
 
     setAlerta('');
 
-
     //Guardar mensaje en la api
     try {
-      const url = `${process.env.BACKEND_URL}/api/contacto`;
-      await axios.post(url, {nombre, email, celular, mensaje})
+      const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/contacto`;
+      await axios.post(url, {nombre, email, celular, mensaje});
       setAlerta('Mensaje enviado correctamente');
     } catch (error) {
       setAlerta(error.response.data.msg);
     }
+
+    setTimeout(() => {
+      setAlerta('');
+    }, 2000);
   }
 
   return (
