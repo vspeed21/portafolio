@@ -183,11 +183,31 @@
 
 .campo textarea{
   outline: none;
+  border-width: 1px;
   font-family: 'Roboto', sans-serif;
   padding-left: 1rem;
   padding-top: 1rem;
   min-height: 15rem;
   font-size: 1.4rem;
+}
+
+.campo p{
+  text-align: center;
+  font-size: 1.4rem;
+  padding-block: .5rem;
+  margin-block: 1rem;
+  background-color: rgb(254 226 226);
+  border-left: 4px solid rgb(248 113 113);
+  color: rgb(185 28 28);
+}
+
+@media (min-width: 768px) {
+  .campo p{
+    display: inline-block;
+    width: 50%;
+    margin-inline: auto;
+    padding-block: 1rem;
+  }
 }
 
 .formulario input[type=submit]{
