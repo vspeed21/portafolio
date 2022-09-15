@@ -1,8 +1,8 @@
 import axios from 'axios';
-
 import { useState } from 'react'
 
 import styles from '../../styles/Contacto.module.css'
+import Alerta from './Alerta';
 
 const Formulario = () => {
   
@@ -10,33 +10,33 @@ const Formulario = () => {
   const [email, setEmail] = useState('');
   const [celular, setCelular] = useState('');
   const [mensaje, setMensaje] = useState('');
-  const [alerta, setAlerta] = useState('');
+  const [alerta, setAlerta] = useState({});
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     if([nombre, email, mensaje].includes('')) {
-      setAlerta('Todos los campos son obligatorios')
+      setAlerta({msg: 'Todos los campos son obligatorios', error: true})
       setTimeout(() => {
-        setAlerta('')
-      }, 3000);
+        setAlerta({})
+      }, 5000);
       return;
     }
 
-    setAlerta('');
+    setAlerta({});
 
     //Guardar mensaje en la api
     try {
       const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/contacto`;
       await axios.post(url, {nombre, email, celular, mensaje});
-      setAlerta('Mensaje enviado correctamente');
+      setAlerta({msg: 'Mensaje enviado correctamente', error: false});
     } catch (error) {
-      setAlerta(error.response.data.msg);
+      setAlerta({msg: error.response.data.msg, error: true});
     }
 
     setTimeout(() => {
-      setAlerta('');
-    }, 2000);
+      setAlerta({});
+    }, 5000);
   }
 
   return (
@@ -44,8 +44,8 @@ const Formulario = () => {
       className={`${styles.formulario} contenedor`} 
       onSubmit={handleSubmit} noValidate
     >
-      {alerta && 
-        <p className='alerta'>{alerta}</p>
+      {alerta.msg && 
+        <Alerta msg={alerta.msg} error={alerta.error}/>
       }
       <div className={styles.campo}>
         <label htmlFor='nombre'>Nombre:</label>
