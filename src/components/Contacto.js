@@ -1,4 +1,4 @@
-import { GoMarkGithub, GoMail } from "react-icons/go";
+import { GoMarkGithub, GoMail, GoLocation } from "react-icons/go";
 import { BsWhatsapp } from "react-icons/bs";
 import styles from '../../styles/Contacto.module.css'
 import Formulario from './Formulario'
@@ -22,6 +22,11 @@ const Contacto = () => {
               <GoMail />
             </a>
             <p>vtorresquintanilla0206@gmail.com</p>
+          </div>
+
+          <div className={styles.email}>
+            <a><GoLocation/></a>
+            <p>La Lima, Cortes. Honduras</p>
           </div>
 
           <div className={styles.flex}>
