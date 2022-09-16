@@ -1,5 +1,5 @@
 .header{
-  background-image:  linear-gradient(to right, rgb(0 0 0 /.8), rgb(0 0 0 /.8)), url(/img/header3.jpg);
+  background-image:  linear-gradient(to right, rgb(0 0 0 /.8), rgb(0 0 0 /.8)), url(/img/header.png);
   background-position: center left;
   background-repeat: no-repeat;
   background-size: cover;
@@ -107,7 +107,6 @@
 .grid{
   display: flex;
   flex-direction: column;
-  gap: 3rem;
   justify-content: center;
   align-items: center;
   color: var(--blanco);
@@ -118,18 +117,19 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 8rem;
+    margin-top: 0rem;
+    gap: 3rem;
   }
 }
 
 .grid > div{
-  margin-top: 2rem;
+  margin-top: 1rem;
   text-align: center;
 }
 
 .grid > div > p{
   font-size: 3rem;
-  margin-top: 2rem;
+  margin-top: 1rem;
 }
 
 .grid > p{
