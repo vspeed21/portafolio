@@ -76,6 +76,29 @@
     }
 }
 
+.disponibilidad{
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.3rem;
+}
+
+.disponibilidad{
+  font-size: 1.6rem;
+}
+
+.disponibilidad div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+}
+
+.disponibilidad span{
+  width: 1rem;
+  height: 1rem;
+  background-color: #25d44b;
+  border-radius: 50%;
+}
 
 .copyright{
     font-size: 1.8rem;
