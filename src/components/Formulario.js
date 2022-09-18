@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 import styles from '../../styles/Contacto.module.css'
 import Alerta from './Alerta';
+import Spinner from './Spinner';
 
 const Formulario = () => {
   
@@ -11,7 +12,8 @@ const Formulario = () => {
   const [celular, setCelular] = useState('');
   const [mensaje, setMensaje] = useState('');
   const [alerta, setAlerta] = useState({});
-  const [errorInput, setErrorInput] = useState(false)
+  const [errorInput, setErrorInput] = useState(false);
+  const [cargando, setCargando] = useState(false)
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -44,8 +46,10 @@ const Formulario = () => {
 
     //Guardar mensaje en la api
     try {
+      setCargando(true)
       const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/contacto`;
       await axios.post(url, {nombre, email, celular, mensaje});
+      setCargando(false)
       setAlerta({msg: 'Mensaje enviado correctamente', error: false});
     } catch (error) {
       setAlerta({msg: error.response.data.msg, error: true});
@@ -66,7 +70,8 @@ const Formulario = () => {
       className={`${styles.formulario} contenedor`} 
       onSubmit={handleSubmit} noValidate
     >
-      {alerta.msg && 
+      {cargando ? <Spinner/> :
+        alerta.msg && 
         <Alerta msg={alerta.msg} error={alerta.error}/>
       }
       <div className={styles.campo}>
