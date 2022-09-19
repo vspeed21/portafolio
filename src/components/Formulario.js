@@ -94,7 +94,7 @@ const Formulario = () => {
           id='nombre'
           type={'text'}
           value={nombre}
-          className={errorInput && nombre === '' && 'borde-rojo'}
+          className={errorInput && nombre === '' ? 'borde-rojo' : ''}
           onChange={e => setNombre(e.target.value)}
           placeholder={errorInput ? '' : 'Ingresa tu nombre'}
         />
@@ -108,7 +108,7 @@ const Formulario = () => {
           id='email'
           type={'email'}
           value={email}
-          className={errorInput && email === '' && 'borde-rojo'}
+          className={errorInput && email === '' ? 'borde-rojo' : ''}
           onChange={e => setEmail(e.target.value)}
           placeholder={errorInput ? '' : 'Ingresa tu email'}
         />
@@ -122,7 +122,7 @@ const Formulario = () => {
           id='celular'
           type={'tel'}
           value={celular}
-          className={errorInput && celular !== '' && !Number(celular) && 'borde-rojo'}
+          className={errorInput && celular !== '' && !Number(celular) ? 'borde-rojo' : ''}
           onChange={e => setCelular(e.target.value)}
           placeholder='Ingresa tu telefono'
         />
@@ -136,7 +136,7 @@ const Formulario = () => {
           id='mensaje'
           onChange={e => setMensaje(e.target.value)}
           value={mensaje}
-          className={errorInput && mensaje === '' && 'borde-rojo'}
+          className={errorInput && mensaje === '' ? 'borde-rojo' : ''}
           placeholder={errorInput ? '' : 'Ingresa tu mensaje'}
         >
         </textarea>
