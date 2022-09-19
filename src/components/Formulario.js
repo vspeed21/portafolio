@@ -13,12 +13,14 @@ const Formulario = () => {
   const [mensaje, setMensaje] = useState('');
   const [alerta, setAlerta] = useState({});
   const [errorInput, setErrorInput] = useState(false);
-  const [cargando, setCargando] = useState(false)
+  const [cargando, setCargando] = useState(false);
+
+  const er = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    if(nombre === '') {
+    if(nombre.length < 4) {
       setErrorInput(true);
       setTimeout(() => {
         setErrorInput(false)
@@ -26,12 +28,24 @@ const Formulario = () => {
       return;
     }
 
-    if(email === '') {
+    if(!er.test(email)) {
       setErrorInput(true);
       setTimeout(() => {
         setErrorInput(false)
       }, 3000);
       return;
+    }else{
+      setErrorInput(false);
+    }
+
+    if(celular !== '') {
+      if(!Number(celular)) {
+        setErrorInput(true);
+        setTimeout(() => {
+          setErrorInput(false)
+        }, 3000);
+        return;
+      }
     }
 
     if(mensaje === '') {
@@ -41,7 +55,7 @@ const Formulario = () => {
       }, 3000);
       return;
     }
-
+    setErrorInput(false)
     setAlerta({});
 
     //Guardar mensaje en la api
@@ -85,7 +99,7 @@ const Formulario = () => {
           placeholder={errorInput ? '' : 'Ingresa tu nombre'}
         />
 
-        {errorInput && nombre ==='' && <p>Ingrese su nombre</p>}
+        {errorInput && nombre.length < 3 && <p>Nombre corto. Ingrese mas de 3 caracteres</p>}
       </div>
 
       <div className={styles.campo}>
@@ -99,7 +113,7 @@ const Formulario = () => {
           placeholder={errorInput ? '' : 'Ingresa tu email'}
         />
 
-        {errorInput && email === '' && <p>Ingrese su correo electronico</p>}
+        {errorInput && !er.test(email) && <p>Direccion de correo no valida</p>}
       </div>
 
       <div className={styles.campo}>
@@ -108,9 +122,12 @@ const Formulario = () => {
           id='celular'
           type={'tel'}
           value={celular}
+          className={errorInput && celular !== '' && !Number(celular) && 'borde-rojo'}
           onChange={e => setCelular(e.target.value)}
           placeholder='Ingresa tu telefono'
         />
+
+        {errorInput && celular !== '' && !Number(celular) && <p>Ingrese un numero</p>}
       </div>
 
       <div className={styles.campo}>
