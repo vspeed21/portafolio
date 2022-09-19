@@ -59,12 +59,12 @@ const Header = ({ informacion }) => {
           }
 
           <Link href='/skills'>
-            <a className={path === '/skills' && styles.active_link}>
+            <a className={path === '/skills' ? styles.active_link : ''}>
               Habilidades
             </a>
           </Link>
           <Link href='/contacto'>
-            <a className={path === '/contacto' && styles.active_link}>
+            <a className={path === '/contacto' ? styles.active_link : ''}>
               Contacto
             </a>
           </Link>
