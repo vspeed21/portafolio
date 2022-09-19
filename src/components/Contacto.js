@@ -9,7 +9,7 @@ const Contacto = () => {
       <div className={`${styles.contacto}`}>
         <div className={styles.texto}>
           <h3>
-            ¿Quiere hacer un buen proyecto?
+            ¿Quiere realizar un proyecto?
             <span>Hagamoslo juntos</span>
           </h3>
 
