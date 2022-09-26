@@ -1,8 +1,8 @@
 import styles from '../../styles/Alerta.module.css'
 
-const Alerta = ({msg, error}) => {
+const Alerta = ({children, error, msg}) => {
   return (
-    <p className={`${styles.alerta} ${error ? styles.error : styles.exito}`}>{msg}</p>
+    <p className={`${styles.alerta} ${error ? styles.error : styles.exito}`}>{children || msg}</p>
   )
 }
 
