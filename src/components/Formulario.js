@@ -16,9 +16,19 @@ const Formulario = () => {
   const [cargando, setCargando] = useState(false);
 
   const er = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+  const regexTel = /^[a-z][a-z]*$/
 
   async function handleSubmit(e) {
     e.preventDefault();
+
+    //Validacion para el nombre
+    if(nombre === '') {
+      setErrorInput(true);
+      setTimeout(() => {
+        setErrorInput(false)
+      }, 3000);
+      return;
+    }
 
     if(nombre.length < 4) {
       setErrorInput(true);
@@ -28,6 +38,15 @@ const Formulario = () => {
       return;
     }
 
+    if(!regexTel.test(nombre)) {
+      setErrorInput(true);
+      setTimeout(() => {
+         setErrorInput(false)
+       }, 3000);
+       return;
+    }
+
+    //Validacion para el correo
     if(!er.test(email)) {
       setErrorInput(true);
       setTimeout(() => {
@@ -38,6 +57,7 @@ const Formulario = () => {
       setErrorInput(false);
     }
 
+    //Validacion para el celular
     if(celular !== '') {
       if(!Number(celular)) {
         setErrorInput(true);
@@ -48,6 +68,7 @@ const Formulario = () => {
       }
     }
 
+    //Validacion para el mensaje
     if(mensaje === '') {
       setErrorInput(true);
       setTimeout(() => {
@@ -55,7 +76,16 @@ const Formulario = () => {
       }, 3000);
       return;
     }
-    setErrorInput(false)
+
+    if(mensaje.length <= 20) {
+      setErrorInput(true);
+      setTimeout(() => {
+        setErrorInput(false)
+      }, 3000);
+      return;
+    }
+
+    setErrorInput(false);
     setAlerta({});
 
     //Guardar mensaje en la api
@@ -64,7 +94,7 @@ const Formulario = () => {
       const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/contacto`;
       await axios.post(url, {nombre, email, celular, mensaje});
       setCargando(false)
-      setAlerta({msg: 'Mensaje enviado correctamente', error: false});
+      setAlerta({msg: '1', error: false});
     } catch (error) {
       setAlerta({msg: error.response.data.msg, error: true});
     }
@@ -85,8 +115,10 @@ const Formulario = () => {
       onSubmit={handleSubmit} noValidate
     >
       {cargando ? <Spinner/> :
-        alerta.msg && 
-        <Alerta msg={alerta.msg} error={alerta.error}/>
+        alerta.msg && !alerta.error &&
+        <Alerta>
+          Mensaje enviado correctamente
+        </Alerta>
       }
       <div className={styles.campo}>
         <label htmlFor='nombre'>Nombre:</label>
@@ -94,12 +126,16 @@ const Formulario = () => {
           id='nombre'
           type={'text'}
           value={nombre}
-          className={errorInput && nombre === '' ? 'borde-rojo' : ''}
+          className={errorInput && nombre.length < 4 ? 'borde-rojo' : ''}
           onChange={e => setNombre(e.target.value)}
           placeholder={errorInput ? '' : 'Ingresa tu nombre'}
         />
 
-        {errorInput && nombre.length < 3 && <p>Nombre corto. Ingrese mas de 3 caracteres</p>}
+
+        {errorInput && nombre === '' ? <p>El nombre es obligatorio</p> : 
+         errorInput && nombre.length < 4 ? <p>Nombre muy corto. Ingrese mas de 4 caracteres</p> : 
+         errorInput && !regexTel.test(nombre) && <p>El nombre no puede llevar un numero</p>}
+
       </div>
 
       <div className={styles.campo}>
@@ -112,8 +148,8 @@ const Formulario = () => {
           onChange={e => setEmail(e.target.value)}
           placeholder={errorInput ? '' : 'Ingresa tu email'}
         />
+        {errorInput && !er.test(email) && <p>Dirección de correo no válida</p>}
 
-        {errorInput && !er.test(email) && <p>Direccion de correo no valida</p>}
       </div>
 
       <div className={styles.campo}>
@@ -127,7 +163,7 @@ const Formulario = () => {
           placeholder='Ingresa tu telefono'
         />
 
-        {errorInput && celular !== '' && !Number(celular) && <p>Ingrese un numero</p>}
+        {errorInput && celular !== '' && !Number(celular) && <p>Ingrese un numero válido</p>}
       </div>
 
       <div className={styles.campo}>
@@ -141,11 +177,13 @@ const Formulario = () => {
         >
         </textarea>
 
-        {errorInput && mensaje === '' && <p>Ingrese su mensaje</p>}
+        {errorInput && mensaje === '' ? <p>Ingrese su mensaje</p> : 
+          errorInput && mensaje.length <= 17 && <p>Mensaje muy corto</p>
+        }
       </div>
 
       <input
-        type={'submit'}
+        type='submit'
         value='Contactar'
       />
     </form>
