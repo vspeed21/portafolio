@@ -34,7 +34,7 @@ export const Tabs = ({reacts, sass}) => {
             className={`${toggleTabs === 1 ? styles.contenidoActivo : ''}`}
           >
               <ListadoSass
-                proyecto={sass}
+                proyectos={sass}
               />
           </div>
 
@@ -42,7 +42,7 @@ export const Tabs = ({reacts, sass}) => {
             className={`${toggleTabs === 2 && styles.contenidoActivo}`}
           >
               <ListadoReacts
-                proyecto={reacts}
+                proyectos={reacts}
               />
           </div>
         </div>

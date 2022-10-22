@@ -3,34 +3,35 @@ import Link from 'next/link';
 import styles from '../../styles/Listado.module.css'
 import stylesG from '../../styles/Tabs.module.css';
 
-const ListadoSass = ({proyecto}) => {
+const ListadoSass = ({ proyectos }) => {
+  console.log(proyectos);
 
   return (
     <>
       <div className={stylesG.grid}>
-        {proyecto.map( sass => {
-          const { nombre, descripcion, linkGit, linkProyecto, imagen, tecnologias} = sass;
+        {proyectos.map( proyecto => {
+          const { nombre, descripcion, linkGit, linkProyecto, imagen, tecnologias} = proyecto.attributes;
 
 
           return(
-          <div data-aos="flip-left" className={styles.card} key={sass.id}>
+          <div data-aos="flip-left" className={styles.card} key={proyecto.id}>
             <h3>{nombre}</h3>
             <a href={linkProyecto} target='_blank' rel="noopener noreferrer" className='mask'>
               <Image
                 width={300}
                 height={300}
-                src={imagen}
+                src={imagen.data.attributes.url}
                 alt={`imagen proyecto ${nombre}`}
               />
             </a>
 
             <div className={styles.tecnologias}>
-              {tecnologias.map( tecnologia => (
+              {tecnologias?.data?.map( tecnologia => (
                 <Image
                   key={tecnologia.id}
                   width={30}
                   height={tecnologia.imagen === '/logos/logo-gulp.png' ? 30 : 50}
-                  src={tecnologia.imagen}
+                  src={tecnologia?.attributes?.url}
                   alt='imagen tecnologia'
                 />
               ))}
@@ -63,7 +64,7 @@ const ListadoSass = ({proyecto}) => {
           })}
       </div>
       
-      {proyecto.length > 3 && 
+      {proyectos.length > 3 && 
           <div className={styles.boton}>
             <Link href='/proyectos-sass'>
               Ver mas
