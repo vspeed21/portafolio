@@ -6,9 +6,7 @@ import SobreMi from "../src/components/SobreMi";
 import { Tabs } from "../src/components/Tabs"
 import Tabla from "../src/components/Tabla"
 
-import { Reacts, Sass } from '../src/data/proyectos';
-
-export default function Home() {
+export default function Home({sass, reacts}) {
   useEffect( () => {
     AOS.init();
   }, []);
@@ -22,11 +20,33 @@ export default function Home() {
       <Tabla/>
 
       <Tabs
-        reacts={Reacts}
-        sass={Sass}
+        reacts={reacts.data}
+        sass={sass.data}
       />
 
     </Layout>
    </>
   )
+}
+
+export async function getServerSideProps() {
+  const urlSass = `${process.env.API_URL}/api/sasses?populate=*`;
+  const urlReact = `${process.env.API_URL}/api/reacts?populate=*`;
+
+  const [ resSass, resReact ] = await Promise.all([
+    fetch(urlSass),
+    fetch(urlReact)
+  ]);
+
+  const [ sass, reacts ] = await Promise.all([
+    resSass.json(),
+    resReact.json(),
+  ]);
+
+  return{
+    props:{
+      sass,
+      reacts,
+    }
+  }
 }
