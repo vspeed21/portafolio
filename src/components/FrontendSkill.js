@@ -3,14 +3,14 @@ import styles from '../../styles/Skill.module.css'
 
 const FrontendSkill = ({skill}) => {
 
-    const { nombre, descripcion, imagen} = skill;
+    const { nombre, descripcion, imagen } = skill.attributes;
 
   return (
     <div className={`${styles.skill} transitionFrontend`}>
         <Image 
             width={300}
             height={nombre === 'CSS' ? 320 : 250}
-            src={imagen}
+            src={imagen.data.attributes.url}
             alt={`imagen tecnologia ${nombre}`}
         />
 
