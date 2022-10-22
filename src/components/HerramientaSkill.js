@@ -3,14 +3,14 @@ import Image from 'next/image';
 import styles from '../../styles/Skill.module.css'
 
 const BackendSkill = ({herramienta}) => {
-    const { nombre, descripcion, imagen} = herramienta;
+    const { nombre, descripcion, imagen } = herramienta.attributes;
 
   return (
     <div className={styles.skill}>
         <Image 
             width={300}
             height={nombre === 'Gulp' ? 400 : 250}
-            src={imagen}
+            src={imagen.data.attributes.url}
             alt={`imagen tecnologia ${nombre}`}
         />
 
