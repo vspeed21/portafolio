@@ -8,7 +8,7 @@ const ListadoReacts = ({ proyectos}) => {
   return (
     <>
       <div className={stylesG.grid}>
-        {proyectos.map( proyecto => {
+        {proyectos?.map( proyecto => {
           const { nombre, descripcion, linkGit, linkProyecto, imagen, tecnologias} = proyecto.attributes;
 
           return(
@@ -62,7 +62,7 @@ const ListadoReacts = ({ proyectos}) => {
             })}
         </div>
         
-        {proyectos.length > 3 && 
+        {proyectos?.length > 3 && 
           <div className={styles.boton}>
             <Link href='/proyectos-react'>
               Ver mas

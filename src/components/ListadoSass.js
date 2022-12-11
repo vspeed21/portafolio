@@ -9,7 +9,7 @@ const ListadoSass = ({ proyectos }) => {
   return (
     <>
       <div className={stylesG.grid}>
-        {proyectos.map( proyecto => {
+        {proyectos?.map( proyecto => {
           const { nombre, descripcion, linkGit, linkProyecto, imagen, tecnologias} = proyecto.attributes;
 
 
@@ -64,7 +64,7 @@ const ListadoSass = ({ proyectos }) => {
           })}
       </div>
       
-      {proyectos.length > 3 && 
+      {proyectos?.length > 3 && 
           <div className={styles.boton}>
             <Link href='/proyectos-sass'>
               Ver mas
