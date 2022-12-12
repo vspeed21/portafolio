@@ -14,11 +14,9 @@ const Layout = ({children, pagina, informacion}) => {
         <meta name="keywords" content="portafolio web, proyectos web, skills" />
       </Head>
 
-      <body>
         <Header informacion={informacion} />
           {children}
         <Footer />
-      </body>
 
     </>
   )
