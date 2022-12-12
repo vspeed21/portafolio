@@ -1,6 +1,5 @@
 import { GoMarkGithub, GoMail, GoLocation } from "react-icons/go";
 import { BsWhatsapp } from "react-icons/bs";
-import styles from '../../styles/Contacto.module.css'
 import Formulario from './Formulario'
 
 const Contacto = () => {

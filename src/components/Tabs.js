@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import styles from '../../styles/Tabs.module.css';
 import ListadoReacts from './ListadoReacts';
 import ListadoSass from './ListadoSass';
 

@@ -3,7 +3,6 @@ import AOS from 'aos';
 
 import Layout from "../src/layout/Layout"
 import SobreMi from "../src/components/SobreMi";
-import { Tabs } from "../src/components/Tabs"
 import Tabla from "../src/components/Tabla"
 
 export default function Home({sass, reacts}) {
@@ -12,20 +11,12 @@ export default function Home({sass, reacts}) {
   }, []);
   
   return (
-   <>
-    <Layout pagina={'Inicio'} informacion='informacion'>
+    <Layout pagina='Inicio' informacion='informacion'>
 
       <SobreMi/>
 
       <Tabla/>
-
-      <Tabs
-        reacts={reacts.data}
-        sass={sass.data}
-      />
-
     </Layout>
-   </>
   )
 }
 

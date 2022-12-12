@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react'
 
-import styles from '../../styles/Contacto.module.css'
 import Alerta from './Alerta';
 import Spinner from './Spinner';
 

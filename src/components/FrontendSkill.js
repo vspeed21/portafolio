@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import styles from '../../styles/Skill.module.css'
 
 const FrontendSkill = ({skill}) => {
 
