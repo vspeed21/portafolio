@@ -29,7 +29,11 @@ const Header = ({ informacion }) => {
   // }, []);
 
   return (
-    <h1>header</h1>
+    <header className="hero">
+      <div className='contenedor text-white p-10'>
+        hola
+      </div>
+    </header>
   )
 }
 
