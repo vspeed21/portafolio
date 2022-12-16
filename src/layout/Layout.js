@@ -14,9 +14,11 @@ const Layout = ({children, pagina, informacion}) => {
         <meta name="keywords" content="portafolio web, proyectos web, skills" />
       </Head>
 
+      <body className="bg-body-dark h-screen">
         <Header informacion={informacion} />
           {children}
         <Footer />
+      </body>
 
     </>
   )
