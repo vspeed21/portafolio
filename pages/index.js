@@ -5,6 +5,7 @@ import Layout from "../src/layout/Layout"
 import SobreMi from "../src/components/SobreMi";
 import Tabla from "../src/components/Tabla"
 import Services from '../src/components/Services';
+import WorkSamples from '../src/components/WorkSamples';
 
 export default function Home({sass, reacts}) {
   useEffect( () => {
@@ -17,6 +18,7 @@ export default function Home({sass, reacts}) {
       <SobreMi/>
       <Tabla/>
       <Services/>
+      <WorkSamples/>
     </Layout>
   )
 }
