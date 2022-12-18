@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
-import reactIcon from '../../public/icons/react-color.svg';
+import reactIcon from '../../public/icons/react-color.svg'; 
 import cssIcon from '../../public/icons/css-color.svg';
 import sassIcon from '../../public/icons/sass-color.svg'
 import tailwindIcon from '../../public/icons/tailwindcss-color.svg'

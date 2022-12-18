@@ -4,6 +4,7 @@ import AOS from 'aos';
 import Layout from "../src/layout/Layout"
 import SobreMi from "../src/components/SobreMi";
 import Tabla from "../src/components/Tabla"
+import Services from '../src/components/Services';
 
 export default function Home({sass, reacts}) {
   useEffect( () => {
@@ -14,8 +15,8 @@ export default function Home({sass, reacts}) {
     <Layout pagina='Inicio' informacion='informacion'>
 
       <SobreMi/>
-
       <Tabla/>
+      <Services/>
     </Layout>
   )
 }
