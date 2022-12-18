@@ -36,7 +36,10 @@ module.exports = {
             fontSize: '16rem',
             '-webkit-background-clip': 'text',
             backgroundClip: 'text',
-          }
+          },
+        },
+        '.center': {
+          transform: 'translate(-50%, -50%)'
         }
       });
     })
