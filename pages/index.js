@@ -7,6 +7,7 @@ import Tabla from "../src/components/Tabla"
 import Services from '../src/components/Services';
 import WorkSamples from '../src/components/WorkSamples';
 import Methodology from '../src/components/Methodology';
+import ContactHome from '../src/components/ContactHome';
 
 export default function Home({sass, reacts}) {
   useEffect( () => {
@@ -20,6 +21,7 @@ export default function Home({sass, reacts}) {
       <Tabla/>
       <Services/>
       <WorkSamples/>
+      <ContactHome/>
       <Methodology/>
     </Layout>
   )
