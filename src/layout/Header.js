@@ -11,7 +11,7 @@ const Header = ({ informacion }) => {
 
   useEffect( () => {
     const options = {
-      strings: ['Victor Torres', 'Desarrollador web', 'Maquetador web'],
+      strings: ['Victor Torres', 'Web developer'],
       startDelay: 300,
       typeSpeed: 150,
       backDelay: 150,
@@ -49,17 +49,21 @@ const Header = ({ informacion }) => {
       </div>
 
       {informacion ? (
-        <div className="max-w-3xl text-white mx-auto grid md:grid-cols-2 place-content-center gap-7">
+        <div className="max-w-3xl text-white mx-auto grid md:grid-cols-2 place-content-center gap-7 text-center">
           <div className='flex flex-col item-center justify-center'>
             <h2 className='text-3xl md:text-5xl font-bold mb-4'>
-              Hola, soy {''}
+              Hi, I'm {''}
               <span ref={el}></span>
             </h2>
 
-            <p className='text-2xl text-center'>Transformo tu idea a una forma de vender</p>
+            <p className='text-2xl'>
+              I make your bussines shine on the web
+            </p>
           </div>
 
-        <p className='gradient inline-block text-transparent -mt-14 md:mt-0'> {'</>'} </p>
+        <p className='gradient inline-block text-transparent -mt-14 md:mt-0'>
+          {'</>'} 
+        </p>
 
         </div>
       ): null}
