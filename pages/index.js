@@ -9,7 +9,7 @@ import WorkSamples from '../src/components/WorkSamples';
 import Methodology from '../src/components/Methodology';
 import ContactHome from '../src/components/ContactHome';
 
-export default function Home({sass, reacts}) {
+export default function Home({ projects }) {
   useEffect( () => {
     AOS.init();
   }, []);
@@ -20,7 +20,9 @@ export default function Home({sass, reacts}) {
       <SobreMi/>
       <Tabla/>
       <Services/>
-      <WorkSamples/>
+      <WorkSamples
+        projects={projects.data}
+      />
       <ContactHome/>
       <Methodology/>
     </Layout>
@@ -28,23 +30,13 @@ export default function Home({sass, reacts}) {
 }
 
 export async function getServerSideProps() {
-  const urlSass = `${process.env.API_URL}/api/sasses?populate=*`;
-  const urlReact = `${process.env.API_URL}/api/reacts?populate=*`;
-
-  const [ resSass, resReact ] = await Promise.all([
-    fetch(urlSass),
-    fetch(urlReact)
-  ]);
-
-  const [ sass, reacts ] = await Promise.all([
-    resSass.json(),
-    resReact.json(),
-  ]);
+  const url = `${process.env.API_URL}/api/reacts?populate=*`;
+  const response = await fetch(url);
+  const projects = await response.json();
 
   return{
     props:{
-      sass,
-      reacts,
+      projects,
     }
   }
 }
