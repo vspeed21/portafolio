@@ -15,15 +15,16 @@ const SobreMi = () => {
       className='text-white-dark text-center text-4xl md:text-5xl p-5 font-bold'
       >About me</h1>
 
-      <div className='grid md:grid-cols-2 place-content-center text-white contenedor gap-5'>
+      <div className='grid md:grid-cols-2 place-content-center text-white contenedor gap-5 text-xl'>
         <div className='max-w-lg'>
           <p>
-            Soy una persona responsable, honesta, apasionado en mi área. He realizado diversos sitios web con diferentes tecnologías que me han permitido practicar mis conocimientos y así obtener cierto nivel de experiencia.
+            I consider myself a responsible, honest, passionate person in my area.
+            Wanting to enter the world of work to demonstrate my skills 
           </p>
         </div>
 
         <div className='max-w-lg'>
-          <p>Con dos años de experiencia he desarrollado mas de 50 sitios para clientes, y esto me han permitido dominar diversas tecnogias</p>
+          <p>With two years of experience I have developed websites with different web technologies for clients in my community to gain experience.</p>
 
           <div className='flex gap-3 mt-4'>
             {images.length ? images.map( image => (
