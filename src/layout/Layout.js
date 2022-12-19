@@ -1,8 +1,15 @@
+import { useEffect } from "react";
+
 import Head from "next/head"
 import Footer from "./Footer"
 import Header from "./Header"
 
 const Layout = ({children, pagina, informacion}) => {
+
+  useEffect(() => {
+    document.body.className = 'bg-body-dark h-screen'
+  }, []);
+
   return (
     <>
       <Head>
@@ -14,11 +21,9 @@ const Layout = ({children, pagina, informacion}) => {
         <meta name="keywords" content="portafolio web, proyectos web, skills" />
       </Head>
 
-      <body className="bg-body-dark h-screen">
-        <Header informacion={informacion} />
-          {children}
-        <Footer />
-      </body>
+      <Header informacion={informacion} />
+        {children}
+      <Footer />
 
     </>
   )
