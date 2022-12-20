@@ -9,7 +9,7 @@ const Footer = () => {
         <div>
           <Navegacion/>
           
-          <div class="py-3 px-5 border border-gray-400 border-solid flex items-center gap-3 mt-3 rounded-md">
+          <div className="py-3 px-5 border border-gray-400 border-solid flex items-center gap-3 mt-3 rounded-md">
             Estado: 
             <div className='flex items-center gap-2'>
               <span className='bg-lime-400 rounded-full w-3 h-3'></span> 
