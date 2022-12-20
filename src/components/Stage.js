@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 function Stage({ stage }) {
   return (
-    <div className="max-w-3xl mx-auto bg-[#3a3a3a] mt-5 flex flex-col md:flex-row gap-4 items-center p-10 md:py-2">
+    <div className="mx-auto bg-[#3a3a3a] mt-5 flex flex-col md:flex-row gap-4 items-center p-10 md:py-2 max-w-sm md:max-w-3xl">
       <figure>
         <Image
           src={stage.imagePath}
