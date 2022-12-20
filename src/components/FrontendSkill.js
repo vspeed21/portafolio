@@ -1,26 +1,44 @@
 import Image from 'next/image'
 
-const FrontendSkill = ({skill}) => {
+import reactIcon from '../../public/icons/react-color.svg'; 
+import cssIcon from '../../public/icons/css-color.svg';
+import sassIcon from '../../public/icons/sass-color.svg'
+import tailwindIcon from '../../public/icons/tailwindcss-color.svg';
 
-    const { nombre, descripcion, imagen } = skill.attributes;
+const FrontendSkill = () => {
+	
+  const images = [reactIcon, cssIcon, sassIcon, tailwindIcon]
 
-  return (
-    <div className={`${styles.skill} transitionFrontend`}>
-        <Image 
-            width={300}
-            height={nombre === 'CSS' ? 320 : 250}
-            src={imagen.data.attributes.url}
-            alt={`imagen tecnologia ${nombre}`}
-        />
+	return (
+		<>
+			<ul className='list-disc md:text-lg ml-5'>
+				<h2 className='text-white-dark text-2xl font-bold text-center'>Frontend</h2>
+				<li className="mt-5">Semantic HTML</li>
+				<li className="">
+					Design
+					<ul className='list-disc pl-3'>
+						<li className='mt-1'>Responsive CSS</li>
+						<li className='mt-1'>SASS for flexible & reusable styles</li>
+						<li className='mt-1'>TailwindCSS</li>
+						<li className='mt-1'>Styled Components</li>
+					</ul>
+				</li>
+				<li>Modern JavaScript (ES6+)</li>
+				<li>React</li>
+			</ul>
 
-        <div className={styles.textos}>
-            <p className={styles.nombre}>{nombre}</p>
-            {descripcion && 
-                <p className={styles.descripcion}>{descripcion}</p>
-            }
-        </div>
-    </div>
-  )
+			<div className='grid grid-cols-2 items-center sm:flex justify-evenly gap-4 bg-gray-500'>
+				{images.map(image => (
+					<Image
+						src={image}
+						alt="icon"
+						width={50}
+						height={50}
+					/>
+				))}
+			</div>
+		</>
+	)
 }
 
 export default FrontendSkill
