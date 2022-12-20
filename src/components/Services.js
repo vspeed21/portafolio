@@ -8,8 +8,9 @@ function Services() {
       >My Services</h2>
 
       <div className="flex flex-col md:flex-row text-white mt-10 gap-4 justify-evenly">
-        <div className="bg-content py-5 px-3 rounded-md">
+        <div className="bg-content py-5 px-3 rounded-md mx-auto max-w-md">
           <h3 className="text-center text-2xl font-bold">Frontend</h3>
+          <p className="text-center text-lg mt-1">Client side</p>
 
           <div className="flex justify-center">
             <Image
@@ -26,8 +27,9 @@ function Services() {
           </ul>
         </div>
 
-        <div className="bg-content py-5 px-3 rounded-md">
+        <div className="bg-content py-5 px-3 rounded-md mx-auto max-w-md">
           <h3 className="text-center text-2xl font-bold">Backend</h3>
+          <p className="text-center text-lg mt-1">Server side</p>
 
           <div className="flex justify-center">
             <Image
