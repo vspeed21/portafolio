@@ -18,7 +18,7 @@ import dbIcon from '../../public/icons/database.svg'
 				<li>React</li>
 			</ul>
 
-			<div className='grid grid-cols-2 items-center sm:flex justify-evenly gap-4 bg-gray-500 md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-3 py-3 md:py-0'>
+			<div className='grid grid-cols-2 items-center sm:flex justify-evenly gap-4 md:col-start-1 md:col-end-2 md:row-start-2 md:row-end-3 py-3 md:py-0 bg-gray-400 shadow-lg'>
 				{images.map(image => (
 					<Image
 						src={image}

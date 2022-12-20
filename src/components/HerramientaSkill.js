@@ -14,7 +14,7 @@ const HerramientaSkill = () => {
 				<li>GitHub to collaborate and open source projects</li>
 			</ul>
 
-			<div className='grid grid-cols-2 items-center sm:flex justify-evenly gap-4 bg-gray-500 py-3 md:py-0'>
+			<div className='grid grid-cols-2 items-center sm:flex justify-evenly gap-4 py-3 md:py-0 bg-gray-400 shadow-lg'>
 				{images.map(image => (
 					<Image
 						src={image}
