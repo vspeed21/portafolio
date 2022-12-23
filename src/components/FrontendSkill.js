@@ -28,7 +28,7 @@ const FrontendSkill = () => {
         <li>React</li>
       </ul>
 
-      <div className='grid grid-cols-2 items-center sm:flex justify-evenly gap-4 bg-gray-400 shadow-lg'>
+      <div className='grid grid-cols-2 items-center sm:flex justify-evenly gap-4 bg-gray-700 shadow-lg py-3 md:py-0'>
         {images.map(image => (
           <Image
             src={image}
