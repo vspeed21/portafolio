@@ -13,6 +13,7 @@ function Formulario() {
   });
 
   const [alerta, setAlerta] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const [validName, setValidName] = useState(false);
   const [validEmail, setValidEmail] = useState(false);
@@ -64,6 +65,7 @@ function Formulario() {
     e.preventDefault();
 
     try {
+      setLoading(true);
       const url = `${process.env.NEXT_PUBLIC_API_BACKEND}/api/contacto`;
       const response = await axios.post(url, data);
       setAlerta(response.data.msg);
@@ -76,12 +78,15 @@ function Formulario() {
         emailOrCell: '',
         message: '',
       })
+      setLoading(false);
 
     } catch (error) {
+      setLoading(false)
       setAlerta(error.response.data.msg);
       setTimeout(() => {
         setAlerta('')
       }, 5000);
+      setLoading(false);
     }
   }
 
@@ -91,7 +96,7 @@ function Formulario() {
       className='bg-[#383838] p-5 rounded-md shadow-xl w-auto md:w-96'
       noValidate
     >
-      {alerta ? <Alerta msg={alerta} error={alerta === 'Duplicate message' ? 'true': null} /> : null}
+      {loading ? <Spinner/> : alerta ? <Alerta msg={alerta} error={alerta === 'Duplicate message' ? 'true': null} /> : null}
 
       <div className="flex flex-col gap-2 mb-5">
         <label
