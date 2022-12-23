@@ -12,6 +12,8 @@ function Formulario() {
     message: '',
   });
 
+  const [alerta, setAlerta] = useState('');
+
   const [validName, setValidName] = useState(false);
   const [validEmail, setValidEmail] = useState(false);
   const [validPhone, setValidPhone] = useState(false)
@@ -58,10 +60,29 @@ function Formulario() {
     return regex.test(email)
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
 
-    alert('sending...')
+    try {
+      const url = `${process.env.NEXT_PUBLIC_API_BACKEND}/api/contacto`;
+      const response = await axios.post(url, data);
+      setAlerta(response.data.msg);
+      setTimeout(() => {
+        setAlerta('')
+      }, 5000);
+
+      setData({
+        name: '',
+        emailOrCell: '',
+        message: '',
+      })
+
+    } catch (error) {
+      setAlerta(error.response.data.msg);
+      setTimeout(() => {
+        setAlerta('')
+      }, 5000);
+    }
   }
 
   return(
@@ -70,10 +91,12 @@ function Formulario() {
       className='bg-[#383838] p-5 rounded-md shadow-xl w-auto md:w-96'
       noValidate
     >
+      {alerta ? <Alerta msg={alerta} error={alerta === 'Duplicate message' ? 'true': null} /> : null}
+
       <div className="flex flex-col gap-2 mb-5">
         <label
           htmlFor='name'
-          className='uppercase text-white-dark font-bold'
+          className='uppercase text-white-dark font-bold mt-4'
         >
           Name:
         </label>
