@@ -4,56 +4,52 @@ import Formulario from './Formulario'
 
 const Contacto = () => {
   return (
-    <div className={`${styles.padre} contenedor`}>
-      <div className={`${styles.contacto}`}>
-        <div className={styles.texto}>
-          <h3>
-            ¿Quiere realizar un proyecto?
-            <span>Hagamoslo juntos</span>
+    <section className="bg-content py-10 mt-10">
+      <div className="contenedor flex flex-col md:flex-row gap-5 justify-between md:justify-evenly items-center">
+        <div className="text-white-dark text-center md:text-left">
+          <h3 className="text-4xl font-bold">
+            Let's make <span className="text-secondary italic">something great </span>
+            together
           </h3>
 
-          <div className={styles.email}>
-            <a 
-              href='mailito:vtorresquintanilla0206@gmail.com'
-              target='_blank'
-              rel="noopener noreferrer"
-            >
-              <GoMail />
-            </a>
-            <p>vtorresquintanilla0206@gmail.com</p>
+          <div className="mt-5 flex flex-col justify-center items-center md:items-start">
+            <div className="flex items-center gap-2">
+              <a 
+                href='mailito:vtorresquintanilla0206@gmail.com'
+                target='_blank'
+                rel="noopener noreferrer"
+                className="scale-150 font-bold"
+              >
+                <GoMail />
+              </a>
+              <p className="font-bold">vtorresquintanilla0206@gmail.com</p>
+            </div>
+
+            <div className="flex items-center gap-6 mt-3 md:ml-20">
+              <a 
+                href='mailito:vtorresquintanilla0206@gmail.com'
+                target='_blank'
+                rel="noopener noreferrer"
+                className="scale-150"
+              >
+                <BsWhatsapp />
+              </a>
+
+              <a 
+                href='https://github.com/vspeed21'
+                target='_blank'
+                rel="noopener noreferrer"
+                className="scale-150"
+              >
+                <GoMarkGithub />
+              </a>
+            </div>
           </div>
 
-          <div className={styles.email}>
-            <a><GoLocation/></a>
-            <p>La Lima, Cortes. Honduras</p>
-          </div>
-
-          <div className={styles.flex}>
-            <a 
-              href='https://api.whatsapp.com/send?phone=50499152520'
-              target='_blank'
-              rel="noopener noreferrer"
-            >
-              <BsWhatsapp />
-            </a>
-
-            <a 
-              href='https://github.com/vspeed21'
-              target='_blank'
-              rel="noopener noreferrer"
-            >
-              <GoMarkGithub />
-            </a>
-          </div>
         </div>
-
-        <a className='btn' href='/data/CV-VictorTorres.pdf' download>
-          Descargar CV
-        </a>
+        <Formulario/>
       </div>
-
-      <Formulario/>
-    </div>
+    </section>
   )
 }
 
