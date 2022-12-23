@@ -6,17 +6,7 @@ const Footer = () => {
   return (
     <footer className='bg-content mt-16 text-white-dark py-10'>
       <div className='flex flex-col md:flex-row items-center justify-between contenedor'>
-        <div>
           <Navegacion/>
-          
-          <div className="py-3 px-5 border border-gray-400 border-solid flex items-center gap-3 mt-3 rounded-md">
-            Estado: 
-            <div className='flex items-center gap-2'>
-              <span className='bg-lime-400 rounded-full w-3 h-3'></span> 
-              <p>Disponible</p>
-            </div>
-          </div>
-        </div>
 
         <div className='flex items-center gap-2 mt-3 md:mt-0'>
           <p className='text-lg'>
