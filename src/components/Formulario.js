@@ -4,187 +4,178 @@ import { useState } from 'react'
 import Alerta from './Alerta';
 import Spinner from './Spinner';
 
-const Formulario = () => {
-  
-  const [nombre, setNombre] = useState('');
-  const [email, setEmail] = useState('');
-  const [celular, setCelular] = useState('');
-  const [mensaje, setMensaje] = useState('');
-  const [alerta, setAlerta] = useState({});
-  const [errorInput, setErrorInput] = useState(false);
-  const [cargando, setCargando] = useState(false);
+function Formulario() {
+  const [emailOCell, setEmailOCell] = useState('email');
+  const [data, setData] = useState({
+    name: '',
+    emailOrCell: '',
+    message: '',
+  });
 
-  const er = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
-  const regexTel = /^[a-z][a-z]*$/
+  const [validName, setValidName] = useState(false);
+  const [validEmail, setValidEmail] = useState(false);
+  const [validPhone, setValidPhone] = useState(false)
+  const [validMessage, setvalidMessage] = useState(false);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  const regex = /^[+0-9]*$/;
 
-    //Validacion para el nombre
-    if(nombre === '') {
-      setErrorInput(true);
-      setTimeout(() => {
-        setErrorInput(false)
-      }, 3000);
-      return;
-    }
-
-    if(nombre.length < 4) {
-      setErrorInput(true);
-      setTimeout(() => {
-        setErrorInput(false)
-      }, 3000);
-      return;
-    }
-
-    if(!regexTel.test(nombre)) {
-      setErrorInput(true);
-      setTimeout(() => {
-         setErrorInput(false)
-       }, 3000);
-       return;
-    }
-
-    //Validacion para el correo
-    if(!er.test(email)) {
-      setErrorInput(true);
-      setTimeout(() => {
-        setErrorInput(false)
-      }, 3000);
-      return;
-    }else{
-      setErrorInput(false);
-    }
-
-    //Validacion para el celular
-    if(celular !== '') {
-      if(!Number(celular)) {
-        setErrorInput(true);
-        setTimeout(() => {
-          setErrorInput(false)
-        }, 3000);
-        return;
-      }
-    }
-
-    //Validacion para el mensaje
-    if(mensaje === '') {
-      setErrorInput(true);
-      setTimeout(() => {
-        setErrorInput(false)
-      }, 3000);
-      return;
-    }
-
-    if(mensaje.length <= 20) {
-      setErrorInput(true);
-      setTimeout(() => {
-        setErrorInput(false)
-      }, 3000);
-      return;
-    }
-
-    setErrorInput(false);
-    setAlerta({});
-
-    //Guardar mensaje en la api
-    try {
-      setCargando(true)
-      const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/contacto`;
-      await axios.post(url, {nombre, email, celular, mensaje});
-      setCargando(false)
-      setAlerta({msg: '1', error: false});
-    } catch (error) {
-      setAlerta({msg: error.response.data.msg, error: true});
-    }
-
-    setTimeout(() => {
-      setAlerta({});
-    }, 4000);
-
-    setNombre('')
-    setEmail('')
-    setCelular('')
-    setMensaje('');
+  const handleChange = e => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
   }
 
-  return (
-    <form 
-      className={`${styles.formulario} contenedor`} 
-      onSubmit={handleSubmit} noValidate
+  const handleInput = e => {
+    if(e.target.name === 'name' && e.target.value.length < 3) {
+      setValidName(true);
+      return;
+    }
+    setValidName(false)
+
+    if(e.target.id === 'email' && !validarEmail(e.target.value)) {
+      setValidEmail(true);
+      return;
+    }
+    setValidEmail(false);
+
+    if (e.target.id === 'cel' && !regex.test(e.target.value)) {
+      e.target.value = e.target.value.slice(0, -1);
+      setValidPhone(true);
+      return;
+    }
+    setValidPhone(false);
+
+    if(e.target.id === 'message' && e.target.value.length < 10) {
+      setvalidMessage(true);
+      return;
+    }
+    setvalidMessage(false);
+  }
+
+  function validarEmail(email) {
+    const regex =  /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+    return regex.test(email)
+  }
+
+  const handleSubmit = e => {
+    e.preventDefault();
+
+    alert('sending...')
+  }
+
+  return(
+    <form
+      onSubmit={handleSubmit}
+      className='bg-[#383838] p-5 rounded-md shadow-xl w-auto md:w-96'
+      noValidate
     >
-      {cargando ? <Spinner/> :
-        alerta.msg && !alerta.error &&
-        <Alerta>
-          Mensaje enviado correctamente
-        </Alerta>
-      }
-      <div className={styles.campo}>
-        <label htmlFor='nombre'>Nombre:</label>
+      <div className="flex flex-col gap-2 mb-5">
+        <label
+          htmlFor='name'
+          className='uppercase text-white-dark font-bold'
+        >
+          Name:
+        </label>
+
         <input
-          id='nombre'
-          type={'text'}
-          value={nombre}
-          className={errorInput && nombre.length < 4 ? 'borde-rojo' : ''}
-          onChange={e => setNombre(e.target.value)}
-          placeholder={errorInput ? '' : 'Ingresa tu nombre'}
+          type="text"
+          id='name'
+          name='name'
+          className="bg-gray-300 p-2 pl-3 rounded focus:outline-secondary outline-none placeholder-gray-900"
+          placeholder="Enter your name"
+          value={data.name}
+          onChange={handleChange}
+          onInput={handleInput}
         />
 
-
-        {errorInput && nombre === '' ? <p>El nombre es obligatorio</p> : 
-         errorInput && nombre.length < 4 ? <p>Nombre muy corto. Ingrese mas de 4 caracteres</p> : 
-         errorInput && !regexTel.test(nombre) && <p>El nombre no puede llevar un numero</p>}
-
+        {validName && data.name.length < 3 ? <Alerta msg="Short name" error="true" /> : null}
       </div>
 
-      <div className={styles.campo}>
-        <label htmlFor='email'>E-mail:</label>
-        <input
-          id='email'
-          type={'email'}
-          value={email}
-          className={errorInput && email === '' ? 'borde-rojo' : ''}
-          onChange={e => setEmail(e.target.value)}
-          placeholder={errorInput ? '' : 'Ingresa tu email'}
+      <div className="flex gap-5">
+        <div className='flex flex-row-reverse'>
+          <label
+            htmlFor='email'
+            className='uppercase text-white-dark font-bold ml-2'
+          >
+            Email
+          </label>
+
+          <input
+            type="radio"
+            name='emailorcel'
+            id='email'
+            onClick={() => {
+              data.emailOrCell = ''
+              setEmailOCell('email')
+            }}
+          />
+        </div>
+
+        <div className='flex flex-row-reverse'>
+          <label
+            htmlFor='cel'
+            className='uppercase text-white-dark font-bold ml-2'
+          >
+            Phone
+          </label>
+
+          <input
+            type="radio"
+            name='emailorcel'
+            id='cel'
+            onClick={() => {
+              data.emailOrCell = ''
+              setEmailOCell('cel')
+            }}
+          />
+        </div>
+      </div>
+      <input
+          type={emailOCell === 'email' ? 'email': 'tel'}
+          className="bg-gray-300 p-2 pl-3 rounded mt-4 focus:outline-secondary outline-none placeholder-gray-900 mb-5"
+          id={emailOCell === 'email' ? 'email': 'cel'}
+          name="emailOrCell"
+          placeholder={`Enter your ${emailOCell}`}
+          value={data.emailOrCell}
+          onChange={handleChange}
+          onInput={handleInput}
         />
-        {errorInput && !er.test(email) && <p>Dirección de correo no válida</p>}
 
-      </div>
+        {validEmail && !validarEmail(data.emailOrCell) ? <Alerta msg="Invalid email address" error='true' /> : 
+        validPhone ? <Alerta msg="Don't type letters" error='true' /> : null}
 
-      <div className={styles.campo}>
-        <label htmlFor='celular'>Celular:</label>
-        <input
-          id='celular'
-          type={'tel'}
-          value={celular}
-          className={errorInput && celular !== '' && !Number(celular) ? 'borde-rojo' : ''}
-          onChange={e => setCelular(e.target.value)}
-          placeholder='Ingresa tu telefono'
-        />
+      <div className="flex flex-col gap-2 mb-5">
+        <label
+          htmlFor='message'
+          className='uppercase text-white-dark font-bold mt-4'
+        >
+          Message:
+        </label>
 
-        {errorInput && celular !== '' && !Number(celular) && <p>Ingrese un numero válido</p>}
-      </div>
-
-      <div className={styles.campo}>
-        <label htmlFor='mensaje'>Mensaje:</label>
-        <textarea 
-          id='mensaje'
-          onChange={e => setMensaje(e.target.value)}
-          value={mensaje}
-          className={errorInput && mensaje === '' ? 'borde-rojo' : ''}
-          placeholder={errorInput ? '' : 'Ingresa tu mensaje'}
+        <textarea
+          id='message'
+          name="message"
+          className="bg-gray-300 p-2 pl-3 rounded focus:outline-secondary outline-none placeholder-gray-900 h-40"
+          placeholder="Enter your message"
+          value={data.message}
+          onChange={handleChange}
+          onInput={handleInput}
         >
         </textarea>
 
-        {errorInput && mensaje === '' ? <p>Ingrese su mensaje</p> : 
-          errorInput && mensaje.length <= 17 && <p>Mensaje muy corto</p>
-        }
+        {validMessage ? <Alerta msg="Short message" error="true"/> : null}
       </div>
 
-      <input
-        type='submit'
-        value='Contactar'
-      />
+      <div className='flex justify-end'>
+        <input
+          type='submit'
+          value="contact"
+          disabled={data.name === '' || data.emailOrCell === '' || data.message === '' ? true : false}
+          className={`py-2 px-4 uppercase font-bold rounded w-full md:w-auto text-white transition-colors duratin-300 ${data.name === '' || data.emailOrCell === '' || data.message === '' || validName || validPhone || validEmail || validMessage ? 'bg-blue-100 hover:cursor-not-allowed opacity-90' : 'bg-secondary hover:cursor-pointer hover:bg-blue-700 opacity-100'}`}
+        />
+      </div>
+
     </form>
   )
 }
