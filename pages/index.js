@@ -15,7 +15,7 @@ export default function Home({ projects }) {
   }, []);
   
   return (
-    <Layout pagina='Inicio' informacion='informacion'>
+    <Layout pagina='Home' informacion='informacion'>
 
       <SobreMi/>
       <Tabla/>
