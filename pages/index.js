@@ -9,7 +9,7 @@ import WorkSamples from '../src/components/WorkSamples';
 import Methodology from '../src/components/Methodology';
 import ContactHome from '../src/components/ContactHome';
 
-export default function Home({ projects }) {
+export default function Home({ projects, stages }) {
   useEffect( () => {
     AOS.init();
   }, []);
@@ -24,19 +24,31 @@ export default function Home({ projects }) {
         projects={projects.data}
       />
       <ContactHome/>
-      <Methodology/>
+      <Methodology
+        stages={stages.data}
+      />
     </Layout>
   )
 }
 
 export async function getStaticProps() {
-  const url = `${process.env.API_URL}/api/reacts?populate=*`;
-  const response = await fetch(url);
-  const projects = await response.json();
+  const urlProjects = `${process.env.API_URL}/api/reacts?populate=*`;
+  const urlStages = `${process.env.API_URL}/api/stages?populate=*`;
+
+  const [ resProjects, resStages ] = await Promise.all([
+    fetch(urlProjects),
+    fetch(urlStages),
+  ]);
+
+  const [ projects, stages ] = await Promise.all([
+    resProjects.json(),
+    resStages.json(),
+  ]);
 
   return{
     props:{
       projects,
+      stages,
     }
   }
 }
