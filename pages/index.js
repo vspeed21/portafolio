@@ -29,7 +29,7 @@ export default function Home({ projects }) {
   )
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const url = `${process.env.API_URL}/api/reacts?populate=*`;
   const response = await fetch(url);
   const projects = await response.json();
