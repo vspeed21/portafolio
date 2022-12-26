@@ -40,6 +40,10 @@ module.exports = {
         },
         '.center': {
           transform: 'translate(-50%, -50%)'
+        },
+        '.service ul': {
+          listStyleType: 'disc',
+          paddingLeft: '1.5rem'
         }
       });
     })
