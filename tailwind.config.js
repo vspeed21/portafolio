@@ -44,6 +44,24 @@ module.exports = {
         '.service ul': {
           listStyleType: 'disc',
           paddingLeft: '1.5rem'
+        },
+        '.skill': {
+          'ul': {
+            listStyleType: 'disc',
+            paddingLeft: '1.25rem',
+
+            'li:has(> ul)': {
+              listStyleType: 'none',
+            }
+          },
+          'h2': {
+            color: '#DADCE0',
+            fontSize: '1.5rem',
+            fontWeight: 'bold',
+            textAlign: 'center',
+            lineHeight: '2rem',
+            paddingBlock: '1rem',
+          }
         }
       });
     })
