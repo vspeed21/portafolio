@@ -4,9 +4,8 @@ import { useEffect } from 'react';
 import FrontendSkill from './FrontendSkill'
 import BackendSkill from './BackendSkill'
 import HerramientaSkill from './HerramientaSkill'
-import SkillSection from './SkillSection';
 
-const ListadoSkills = ({frontends, backends, herramientas}) => {
+const ListadoSkills = ({frontend, backend, tool}) => {
   return (
     <>
       <div className='relative'>
@@ -21,7 +20,17 @@ const ListadoSkills = ({frontends, backends, herramientas}) => {
         </h1>
       </div>
 
-      <SkillSection/>
+      <section className="grid md:grid-cols-2 md:grid-rows-3 gap-5 text-white max-w-3xl md:mx-auto p-4 rounded-md bg-gray-800 mx-3">
+          <FrontendSkill
+            frontend={frontend}
+          />
+          <BackendSkill
+            backend={backend}
+          />
+          <HerramientaSkill
+            tool={tool}
+          />
+	    </section>
     </>
   )
 }
