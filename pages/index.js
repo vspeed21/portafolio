@@ -9,7 +9,7 @@ import WorkSamples from '../src/components/WorkSamples';
 import Methodology from '../src/components/Methodology';
 import ContactHome from '../src/components/ContactHome';
 
-export default function Home({ projects, stages }) {
+export default function Home({ projects, stages, services }) {
   useEffect( () => {
     AOS.init();
   }, []);
@@ -19,7 +19,9 @@ export default function Home({ projects, stages }) {
 
       <SobreMi/>
       <Tabla/>
-      <Services/>
+      <Services
+        services={services.data}
+      />
       <WorkSamples
         projects={projects.data}
       />
@@ -34,21 +36,25 @@ export default function Home({ projects, stages }) {
 export async function getStaticProps() {
   const urlProjects = `${process.env.API_URL}/api/reacts?populate=*`;
   const urlStages = `${process.env.API_URL}/api/stages?populate=*`;
+  const urlServices = `${process.env.API_URL}/api/services?populate=*`;
 
-  const [ resProjects, resStages ] = await Promise.all([
+  const [ resProjects, resStages, resServices ] = await Promise.all([
     fetch(urlProjects),
     fetch(urlStages),
+    fetch(urlServices),
   ]);
 
-  const [ projects, stages ] = await Promise.all([
+  const [ projects, stages, services ] = await Promise.all([
     resProjects.json(),
     resStages.json(),
+    resServices.json(),
   ]);
 
   return{
     props:{
       projects,
       stages,
+      services,
     }
   }
 }
