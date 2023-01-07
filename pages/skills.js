@@ -35,7 +35,7 @@ export async function getStaticProps() {
     props:{
       frontend,
       backend,
-      tool
+      tool,
     }
   }
 }
