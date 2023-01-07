@@ -44,6 +44,14 @@ const Contacto = () => {
                 <GoMarkGithub />
               </a>
             </div>
+
+            <a
+              href="/data/Victor Torres - Frontend Developer.pdf"
+              download={true} 
+              className='py-2 px-4 uppercase font-bold rounded w-full md:w-auto text-white transition-colors duratin-300 bg-secondary hover:cursor-pointer hover:bg-blue-700 mt-3 inline-block'
+            >
+              Download CV
+            </a>
           </div>
 
         </div>
