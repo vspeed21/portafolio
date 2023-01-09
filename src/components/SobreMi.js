@@ -18,7 +18,7 @@ const SobreMi = () => {
       >About me</h1>
 
       <div className='grid md:grid-cols-2 place-content-center text-white contenedor gap-5 text-xl'>
-        <div className='max-w-lg'>
+        <div data-aos="fade-right" data-aos-duration="1000" className='max-w-lg'>
           <p>
             I consider myself a responsible, honest, passionate person in my area.
             Wanting to enter the world of work to demonstrate my skills 
@@ -27,13 +27,15 @@ const SobreMi = () => {
           <Link href='/contacto'>
             <a 
               className='bg-secondary py-1 px-3 mt-5 inline-block rounded hover:bg-[#1c03ff] font-bold transition-colors duration-300'
+              data-aos="fade-left"
+              data-aos-animation="3000"
             >
               Contact me
             </a>
           </Link>
         </div>
 
-        <div className='max-w-lg'>
+        <div className='max-w-lg' data-aos="fade-left" data-aos-duration="1000">
           <p>With two years of experience I have developed websites with different web technologies for clients in my community to gain experience.</p>
 
           <ul className="list-disc mt-3 ml-5">
@@ -45,12 +47,14 @@ const SobreMi = () => {
           <div className='flex gap-3 mt-4'>
             {images.length ? images.map( (image, i) => (
               <Image
-              key={i}
-              src={image} 
-              alt='icon'
-              width={32} 
-              height={32}
-            />
+                data-aos="fade-up"
+                data-aos-duradion="2000"
+                key={i}
+                src={image} 
+                alt='icon'
+                width={32} 
+                height={32}
+              />
             )): null }
           </div>
           
