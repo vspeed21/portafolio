@@ -6,7 +6,7 @@ const FrontendSkill = ({ frontend }) => {
 
   return (
     <>
-      <div className='skill'>
+      <div className='skill md:text-lg'>
         <ReactMarkdown>{description}</ReactMarkdown>
       </div>
 

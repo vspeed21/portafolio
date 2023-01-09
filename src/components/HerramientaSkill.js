@@ -6,7 +6,7 @@ const HerramientaSkill = ({ tool }) => {
 
   return (
     <>
-      <div className='skill'>
+      <div className="skill md:text-lg ml-5">
         <ReactMarkdown>{description}</ReactMarkdown>
       </div>
 
