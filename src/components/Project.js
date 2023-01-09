@@ -2,11 +2,14 @@ import { useState } from 'react'
 import Link from "next/link";
 import Image from "next/image";
 
-function Project({ project }) {
+function Project({ project, dataAos }) {
   const { nombre, descripcion, imagen, linkGit, linkProyecto, tecnologias } = project.attributes;
 
   return (
-    <div className="mt-5">
+    <div
+      data-aos={dataAos} 
+      className="mt-5"
+    >
         <div className='relative -z-10'>
           <div className='overflow-hidden flex justify-center'>
             <Image

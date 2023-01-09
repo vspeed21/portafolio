@@ -14,6 +14,7 @@ function WorkSamples({ projects }) {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 xl:grid-cols-4">
         {projects.length < 5 ? projects?.map( project => (
           <Project
+            dataAos={project.id % 2 ? "zoom-out-right" : "zoom-out-left"}
             key={project.id}
             project={project}
           />
