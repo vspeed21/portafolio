@@ -1,7 +1,13 @@
+import AOS from 'aos';
+import { useEffect } from 'react';
 import Layout from "../src/layout/Layout"
 import ListadoSkills from "../src/components/ListadoSkills";
 
-const skills = ({frontend, backend, tool}) => {
+const Skills = ({frontend, backend, tool}) => {
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   return (
     <Layout pagina='Skills'>
@@ -40,4 +46,4 @@ export async function getStaticProps() {
   }
 }
 
-export default skills
+export default Skills
