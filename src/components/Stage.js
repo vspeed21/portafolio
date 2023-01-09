@@ -1,10 +1,14 @@
 import Image from 'next/image';
 
-function Stage({ stage }) {
+function Stage({ stage, dataAos }) {
   const { name, description, image } = stage.attributes;
 
   return (
-    <div className="mx-auto bg-[#3a3a3a] mt-5 flex flex-col md:flex-row gap-4 items-center p-10 md:py-2 max-w-sm md:max-w-3xl">
+    <div 
+      className="mx-auto bg-[#3a3a3a] mt-5 flex flex-col md:flex-row gap-4 items-center p-10 md:py-2 max-w-sm md:max-w-3xl"
+      data-aos={dataAos}
+      data-aos-duration="1500"
+    >
       <figure>
         <Image
           src={image?.data?.attributes?.url}

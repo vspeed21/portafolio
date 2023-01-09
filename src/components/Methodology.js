@@ -13,8 +13,9 @@ function Methodology({stages}) {
 
       {stages?.map( stage => (
         <Stage
-            key={stage.id}
-            stage={stage}
+          dataAos={stage.id % 2 ? "flip-right" : "flip-left"}
+          key={stage.id}
+          stage={stage}
         />
       ))}
 
