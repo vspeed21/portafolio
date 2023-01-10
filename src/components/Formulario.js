@@ -94,6 +94,8 @@ function Formulario() {
     <form
       onSubmit={handleSubmit}
       className='bg-[#383838] p-5 rounded-md shadow-xl w-auto md:w-96'
+      data-aos="fade-down-right"
+      data-aos-duration="1000"
       noValidate
     >
       {loading ? <Spinner/> : alerta ? <Alerta msg={alerta} error={alerta === 'Duplicate message' ? 'true': null} /> : null}
@@ -199,6 +201,8 @@ function Formulario() {
         <input
           type='submit'
           value="contact"
+          data-aos="fade-right"
+          data-aos-duration="1000"
           disabled={data.name === '' || data.emailOrCell === '' || data.message === '' ? true : false}
           className={`py-2 px-4 uppercase font-bold rounded w-full md:w-auto text-white transition-colors duratin-300 ${data.name === '' || data.emailOrCell === '' || data.message === '' || validName || validPhone || validEmail || validMessage ? 'bg-blue-100 hover:cursor-not-allowed opacity-90' : 'bg-secondary hover:cursor-pointer hover:bg-blue-700 opacity-100'}`}
         />
