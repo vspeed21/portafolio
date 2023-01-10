@@ -1,4 +1,4 @@
-import { GoMarkGithub, GoMail, GoLocation } from "react-icons/go";
+import { GoMarkGithub, GoMail } from "react-icons/go";
 import { BsWhatsapp } from "react-icons/bs";
 import Formulario from './Formulario'
 
@@ -25,9 +25,9 @@ const Contacto = () => {
               <p className="font-bold">vtorresquintanilla0206@gmail.com</p>
             </div>
 
-            <div className="flex items-center gap-6 mt-3 md:ml-20">
+            <div className="flex items-center gap-6 my-5 md:ml-20">
               <a 
-                href='mailito:vtorresquintanilla0206@gmail.com'
+                href='https://api.whatsapp.com/send?phone=50499152520'
                 target='_blank'
                 rel="noopener noreferrer"
                 className="scale-150"
@@ -45,13 +45,15 @@ const Contacto = () => {
               </a>
             </div>
 
-            <a
-              href="/data/Victor Torres - Frontend Developer.pdf"
-              download={true} 
-              className='py-2 px-4 uppercase font-bold rounded w-full md:w-auto text-white transition-colors duratin-300 bg-secondary hover:cursor-pointer hover:bg-blue-700 mt-3 inline-block'
-            >
-              Download CV
-            </a>
+            <div className="flex justify-center md:justify-start my-3">
+              <a
+                href="/data/Victor Torres - Frontend Developer.pdf"
+                download={true} 
+                className='py-2 px-4 uppercase font-bold rounded w-full md:w-auto text-white transition-colors duratin-300 bg-secondary hover:cursor-pointer hover:bg-blue-700'
+              >
+                Download CV
+              </a>
+            </div>
           </div>
 
         </div>

@@ -1,8 +1,13 @@
-import React from 'react'
+import AOS from 'aos';
+import { useEffect } from 'react'
 import Contacto from '../src/components/Contacto'
 import Layout from '../src/layout/Layout'
 
 const contacto = () => {
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <Layout pagina='Contact'>
       <div className='relative'>
