@@ -8,6 +8,7 @@ const Layout = ({children, pagina, informacion}) => {
 
   useEffect(() => {
     document.body.className = 'bg-body-dark h-screen overflow-x-hidden';
+    document.querySelector('html').lang = 'en';
   }, []);
 
   return (
